@@ -95,7 +95,7 @@ public class ExcluirRequisitar extends JFrame {
 
 	public ExcluirRequisitar() throws ParseException {
 		setTitle("REQUISI\u00C7\u00C3O");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ExcluirRequisitar.class.getResource("/image/user_interface/requisition_edition.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ExcluirRequisitar.class.getResource("/image/requisition_edition.png")));
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 640, 610);
@@ -142,7 +142,7 @@ public class ExcluirRequisitar extends JFrame {
 				dispose();
 			}
 		});
-		btnFechar.setIcon(new ImageIcon(ExcluirRequisitar.class.getResource("/image/user_interface/requisition_edition.png")));
+		btnFechar.setIcon(new ImageIcon(ExcluirRequisitar.class.getResource("/image/requisition_edition.png")));
 		btnFechar.setMargin(new Insets(2, 5, 2, 5));
 		btnFechar.setIconTextGap(0);
 		btnFechar.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -264,7 +264,7 @@ public class ExcluirRequisitar extends JFrame {
 			}
 		});
 		btnExcluir.setEnabled(false);
-		btnExcluir.setIcon(new ImageIcon(ExcluirRequisitar.class.getResource("/image/user_interface/trash.png")));
+		btnExcluir.setIcon(new ImageIcon(ExcluirRequisitar.class.getResource("/image/trash.png")));
 		btnExcluir.setFont(new Font("Arial", Font.BOLD, 14));
 		
 		lblData = new JLabel("DATA");

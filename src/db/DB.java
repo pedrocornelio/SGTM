@@ -18,7 +18,9 @@ import java.util.Properties;
 
 public class DB {
 
-	private static Connection conn = null;
+	public static String properties = "db.properties";
+	
+	public static Connection conn = null;
 
 	public static Connection getConnection() {
 		if (conn == null) {
@@ -44,7 +46,7 @@ public class DB {
 	}
 
 	private static Properties loadProperties() {
-		try (FileInputStream fs = new FileInputStream("db.properties")) {
+		try (FileInputStream fs = new FileInputStream(properties)) {
 			Properties props = new Properties();
 			props.load(fs);
 			return props;

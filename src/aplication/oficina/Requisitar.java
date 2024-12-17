@@ -124,7 +124,7 @@ public class Requisitar extends JFrame {
 	public Requisitar() throws ParseException {
 		setTitle("REQUISI\u00C7\u00C3O");
 		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage(Requisitar.class.getResource("/image/user_interface/requisition_packaeg.png")));
+				.getImage(Requisitar.class.getResource("/image/requisition_packaeg.png")));
 
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 860, 650);
@@ -270,7 +270,7 @@ public class Requisitar extends JFrame {
 		});
 
 		JButton btnPlus = new JButton("");
-		btnPlus.setIcon(new ImageIcon(Requisitar.class.getResource("/image/user_interface/up.png")));
+		btnPlus.setIcon(new ImageIcon(Requisitar.class.getResource("/image/insert.png")));
 		btnPlus.setEnabled(false);
 		btnPlus.addActionListener(new ActionListener() {
 			@Override
@@ -310,7 +310,7 @@ public class Requisitar extends JFrame {
 		});
 
 		JButton btnMinus = new JButton("");
-		btnMinus.setIcon(new ImageIcon(Requisitar.class.getResource("/image/user_interface/trash.png")));
+		btnMinus.setIcon(new ImageIcon(Requisitar.class.getResource("/image/trash.png")));
 		btnMinus.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
@@ -353,7 +353,8 @@ public class Requisitar extends JFrame {
 				Time hora = new java.sql.Time(new java.util.Date().getTime());
 
 				// SETAR ORDEM DE SERVIÇO
-				OrdemManutencao om = new OrdemManutencao(null, textFieldOM.getText(), data, hora, null, null, null, null, null, null, null, null, null);
+				
+				OrdemManutencao om = new OrdemManutencao(null, textFieldOM.getText(), data, hora, null, null, null, null, null, null, null, null, viaturaDao.findByPlaca(textFieldPlaca.getText()));
 				if (ordemManutencaoDao.findByOM(om).getId_om() != null) {
 					om = ordemManutencaoDao.findByOM(om);
 				} else {
@@ -382,8 +383,7 @@ public class Requisitar extends JFrame {
 				dispose();
 			}
 		});
-		btnRequisitar
-				.setIcon(new ImageIcon(Requisitar.class.getResource("/image/user_interface/requisition_packaeg.png")));
+		btnRequisitar.setIcon(new ImageIcon(Requisitar.class.getResource("/image/requisition_packaeg.png")));
 		btnRequisitar.setMargin(new Insets(2, 5, 2, 5));
 		btnRequisitar.setIconTextGap(0);
 		btnRequisitar.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -397,7 +397,7 @@ public class Requisitar extends JFrame {
 				textFieldModelo.setText(vtr.getModelo());
 			}
 		});
-		btnSearchPlaca.setIcon(new ImageIcon(Requisitar.class.getResource("/image/user_interface/search.png")));
+		btnSearchPlaca.setIcon(new ImageIcon(Requisitar.class.getResource("/image/search.png")));
 
 		textFieldModelo = new JTextField();
 		textFieldModelo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -463,7 +463,7 @@ public class Requisitar extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar.setIcon(new ImageIcon(Requisitar.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar.setIcon(new ImageIcon(Requisitar.class.getResource("/image/search_user.png")));
 
 		JLabel lblCodCSM = new JLabel("C\u00D3DIGO CSM");
 		lblCodCSM.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -526,7 +526,7 @@ public class Requisitar extends JFrame {
 			}
 		});
 		btnNovasAplicacoes
-				.setIcon(new ImageIcon(Requisitar.class.getResource("/image/user_interface/desktop_package.png")));
+				.setIcon(new ImageIcon(Requisitar.class.getResource("/image/desktop_package.png")));
 
 		lblEspaco = new JLabel(" ");
 

@@ -128,7 +128,7 @@ public class Saida extends JFrame {
 	 */
 	public Saida() throws ParseException {
 
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Saida.class.getResource("/image/user_interface/requisition_car.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Saida.class.getResource("/image/requisition_car.png")));
 		setTitle("SA\u00CDDA");
 		setFont(new Font("Arial", Font.PLAIN, 12));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -219,7 +219,7 @@ public class Saida extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar.setIcon(new ImageIcon(Saida.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar.setIcon(new ImageIcon(Saida.class.getResource("/image/search_user.png")));
 
 		JLabel lblItensRequisitados = new JLabel("ITENS REQUISITADOS");
 		lblItensRequisitados.setHorizontalAlignment(SwingConstants.CENTER);
@@ -352,7 +352,7 @@ public class Saida extends JFrame {
 
 		btnSaida = new JButton("SA\u00CDDA DE ITENS");
 		btnSaida.setEnabled(false);
-		btnSaida.setIcon(new ImageIcon(Saida.class.getResource("/image/user_interface/requisition_car.png")));
+		btnSaida.setIcon(new ImageIcon(Saida.class.getResource("/image/requisition_car.png")));
 		btnSaida.setFont(new Font("Arial", Font.BOLD, 14));
 		btnSaida.addActionListener(new ActionListener() {
 			@Override
@@ -497,7 +497,7 @@ public class Saida extends JFrame {
 
 		btnPlus = new JButton("");
 		btnPlus.setEnabled(false);
-		btnPlus.setIcon(new ImageIcon(Saida.class.getResource("/image/user_interface/up.png")));
+		btnPlus.setIcon(new ImageIcon(Saida.class.getResource("/image/insert.png")));
 		btnPlus.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -535,7 +535,7 @@ public class Saida extends JFrame {
 		});
 
 		JButton btnMinus = new JButton("");
-		btnMinus.setIcon(new ImageIcon(Saida.class.getResource("/image/user_interface/trash.png")));
+		btnMinus.setIcon(new ImageIcon(Saida.class.getResource("/image/trash.png")));
 		btnMinus.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {

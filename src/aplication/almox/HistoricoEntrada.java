@@ -78,7 +78,7 @@ public class HistoricoEntrada extends JFrame {
 	 */
 	public HistoricoEntrada() throws ParseException {
 		setTitle("HIST\u00D3RICO DE ENTRADA");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(HistoricoEntrada.class.getResource("/image/user_interface/almox_calendar_insert.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HistoricoEntrada.class.getResource("/image/almox_calendar_insert.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 650, 500);
 		contentPane = new JPanel();
@@ -172,7 +172,7 @@ public class HistoricoEntrada extends JFrame {
 				tablePesquisa.getColumnModel().getColumn(9).setMaxWidth(45);
 			}
 		});
-		btnSearch.setIcon(new ImageIcon(HistoricoEntrada.class.getResource("/image/user_interface/search.png")));
+		btnSearch.setIcon(new ImageIcon(HistoricoEntrada.class.getResource("/image/search.png")));
 		
 		JButton btnFechar = new JButton(" FECHAR");
 		btnFechar.addActionListener(new ActionListener() {
@@ -183,7 +183,7 @@ public class HistoricoEntrada extends JFrame {
 				dispose();
 			}
 		});
-		btnFechar.setIcon(new ImageIcon(HistoricoEntrada.class.getResource("/image/user_interface/almox_calendar_insert.png")));
+		btnFechar.setIcon(new ImageIcon(HistoricoEntrada.class.getResource("/image/almox_calendar_insert.png")));
 		btnFechar.setMargin(new Insets(2, 5, 2, 5));
 		btnFechar.setIconTextGap(0);
 		btnFechar.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -211,7 +211,7 @@ public class HistoricoEntrada extends JFrame {
 				}
 			}
 		});
-		print.setIcon(new ImageIcon(HistoricoEntrada.class.getResource("/image/user_interface/pdf.png")));
+		print.setIcon(new ImageIcon(HistoricoEntrada.class.getResource("/image/pdf.png")));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

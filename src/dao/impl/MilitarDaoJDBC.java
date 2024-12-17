@@ -34,6 +34,23 @@ public class MilitarDaoJDBC implements MilitarDao{
 	public MilitarDaoJDBC(Connection conn) {
 		this.conn = conn;
 	}
+	
+	@Override
+	public void insert(Militar obj) {
+		PreparedStatement pst = null;
+		try {
+			pst = conn.prepareStatement("INSERT INTO militar (nome, nBM) VALUES "
+					+ "(?, ?)");
+			pst.setString(1, obj.getNome());
+			pst.setString(2, obj.getnBM());
+			
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DB.closeStatement(pst);
+		}
+	}
 
 	@Override
 	public Militar findById(Integer id) {

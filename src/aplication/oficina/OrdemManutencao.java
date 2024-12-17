@@ -79,7 +79,7 @@ public class OrdemManutencao extends JFrame {
 	 * Create the frame.
 	 */
 	public OrdemManutencao() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(OrdemManutencao.class.getResource("/image/user_interface/maintenance_store.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(OrdemManutencao.class.getResource("/image/maintenance_store.png")));
 		setTitle("ORDEM MANUTEÇÃO");
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -178,7 +178,7 @@ public class OrdemManutencao extends JFrame {
 				exibir.setVisible(true);
 			}
 		});
-		btnCriarOm.setIcon(new ImageIcon(OrdemManutencao.class.getResource("/image/user_interface/gear_maintenance.png")));
+		btnCriarOm.setIcon(new ImageIcon(OrdemManutencao.class.getResource("/image/gear_maintenance.png")));
 		btnCriarOm.setMargin(new Insets(2, 5, 2, 5));
 		btnCriarOm.setIconTextGap(0);
 		btnCriarOm.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -226,7 +226,7 @@ public class OrdemManutencao extends JFrame {
 		contentPane.add(textFieldPlaca);
 		
 		btnFecharOm = new JButton(" FECHAR OM");
-		btnFecharOm.setIcon(new ImageIcon(OrdemManutencao.class.getResource("/image/user_interface/gear_maintenance.png")));
+		btnFecharOm.setIcon(new ImageIcon(OrdemManutencao.class.getResource("/image/gear_maintenance.png")));
 		btnFecharOm.setEnabled(false);
 		btnFecharOm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -292,7 +292,7 @@ public class OrdemManutencao extends JFrame {
 		contentPane.add(textFieldTriagem);
 		
 		JButton btnFecharOm_1 = new JButton(" SERVI\u00C7O OM");
-		btnFecharOm_1.setIcon(new ImageIcon(OrdemManutencao.class.getResource("/image/user_interface/om_service.png")));
+		btnFecharOm_1.setIcon(new ImageIcon(OrdemManutencao.class.getResource("/image/om_service.png")));
 		btnFecharOm_1.setMargin(new Insets(2, 5, 2, 5));
 		btnFecharOm_1.setIconTextGap(0);
 		btnFecharOm_1.setHorizontalTextPosition(SwingConstants.RIGHT);

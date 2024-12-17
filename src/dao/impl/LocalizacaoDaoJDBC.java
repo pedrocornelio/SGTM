@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 import dao.LocalizacaoDao;
 import db.DB;
@@ -28,8 +29,17 @@ public class LocalizacaoDaoJDBC implements LocalizacaoDao {
 	}
 
 	@Override
-	public void insert(Localizacao obj) {
-		// TODO Auto-generated method stub
+	public void insert(String localizacao) {
+		PreparedStatement pst = null;
+		try {
+			pst = conn.prepareStatement("INSERT INTO localizacao (localizacao) VALUE (?)");
+			pst.setString(1, localizacao);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DB.closeStatement(pst);
+		}
 
 	}
 
@@ -40,9 +50,18 @@ public class LocalizacaoDaoJDBC implements LocalizacaoDao {
 	}
 
 	@Override
-	public void delete(Localizacao obj) {
-		// TODO Auto-generated method stub
-
+	public void delete(String localizacao) throws SQLException {
+		PreparedStatement pst = null;
+		try {
+			pst = conn.prepareStatement("DELETE FROM localizacao WHERE localizacao=?");
+			pst.setString(1, localizacao);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			DB.closeStatement(pst);
+		}
 	}
 
 	@Override
@@ -86,6 +105,34 @@ public class LocalizacaoDaoJDBC implements LocalizacaoDao {
 			rs = pst.executeQuery();
 			while (rs.next()) {
 				model.addElement(rs.getString("localizacao"));
+			}
+			return model;
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DB.closeStatement(pst);
+			DB.closeResultSet(rs);
+		}
+	}
+	
+	@Override
+	public DefaultTableModel tableAlmoxarifado(DefaultTableModel model) {
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		model.addColumn("LOCAL");
+
+		try {
+			pst = conn.prepareStatement(
+					"SELECT l.localizacao 'LOCAL'\r\n" + 
+					"FROM localizacao AS l\r\n" +
+					"   ORDER BY l.localizacao ASC");
+
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				model.addRow(new Object[] { 
+						rs.getString("LOCAL") 
+						});
 			}
 			return model;
 		} catch (SQLException e) {

@@ -58,7 +58,7 @@ public class Ajuda extends JFrame {
 	 */
 	public Ajuda() {
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Ajuda.class.getResource("/image/user_interface/help.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Ajuda.class.getResource("/image/help.png")));
 		setTitle("AJUDA");
 		setBounds(100, 100, 400, 300);
 		contentPane = new JPanel();
@@ -143,7 +143,7 @@ public class Ajuda extends JFrame {
 
 			}
 		});
-		btnManual.setIcon(new ImageIcon(Ajuda.class.getResource("/image/user_interface/help.png")));
+		btnManual.setIcon(new ImageIcon(Ajuda.class.getResource("/image/help.png")));
 		btnManual.setBounds(318, 64, 35, 35);
 		contentPane.add(btnManual);
 		

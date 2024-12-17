@@ -29,8 +29,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -42,8 +44,6 @@ import entities.Produto;
 import net.coderazzi.filters.gui.AutoChoices;
 import net.coderazzi.filters.gui.TableFilterHeader;
 import net.coderazzi.filters.gui.TableFilterHeader.Position;
-import javax.swing.UIManager;
-import javax.swing.JTextField;
 
 public class Localizacao extends JFrame {
 
@@ -81,7 +81,7 @@ public class Localizacao extends JFrame {
 		setResizable(false);
 		setFont(new Font("Arial", Font.PLAIN, 12));
 		setTitle("LOCALIZA\u00C7\u00C3O");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Localizacao.class.getResource("/image/user_interface/position.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Localizacao.class.getResource("/image/position.png")));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 650, 600);
 		setLocationRelativeTo(null);
@@ -125,12 +125,12 @@ public class Localizacao extends JFrame {
 		separator_1.setBackground(Color.WHITE);
 
 		JLabel lblNewLabel = new JLabel("LOCAL ATUAL");
-		lblNewLabel.setBounds(25, 59, 111, 25);
+		lblNewLabel.setBounds(25, 55, 111, 25);
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 12));
 
 		JButton btnFechar = new JButton("  FECHAR");
 		btnFechar.setBounds(254, 510, 127, 35);
-		btnFechar.setIcon(new ImageIcon(Localizacao.class.getResource("/image/user_interface/position.png")));
+		btnFechar.setIcon(new ImageIcon(Localizacao.class.getResource("/image/position.png")));
 		btnFechar.setMargin(new Insets(2, 5, 2, 5));
 		btnFechar.setIconTextGap(0);
 		btnFechar.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -190,7 +190,7 @@ public class Localizacao extends JFrame {
 		JButton btnAtualizar = new JButton("ATUALIZAR");
 		btnAtualizar.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAtualizar.setBounds(373, 461, 148, 35);
-		btnAtualizar.setIcon(new ImageIcon(Localizacao.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizar.setIcon(new ImageIcon(Localizacao.class.getResource("/image/desktop_package.png")));
 		btnAtualizar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -232,6 +232,19 @@ public class Localizacao extends JFrame {
 		textFieldCodCSM.setAlignmentY(1.0f);
 		textFieldCodCSM.setBounds(273, 430, 90, 25);
 		contentPane.add(textFieldCodCSM);
+		
+		JButton btnNewButton = new JButton("CRIAR LOCAL");
+		btnNewButton.setIcon(new ImageIcon(Localizacao.class.getResource("/image/almox_new_place.png")));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdicionarLocalizacao exibir = null;
+					exibir = new AdicionarLocalizacao();
+					exibir.setVisible(true);
+				}
+			});
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 14));
+		btnNewButton.setBounds(452, 50, 172, 35);
+		contentPane.add(btnNewButton);
 
 	}
 }

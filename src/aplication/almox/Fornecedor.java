@@ -66,7 +66,7 @@ public class Fornecedor extends JFrame {
 	 */
 	public Fornecedor() {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Fornecedor.class.getResource("/image/user_interface/provider.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Fornecedor.class.getResource("/image/provider.png")));
 		setTitle("FORNECEDOR");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 440);
@@ -165,7 +165,7 @@ public class Fornecedor extends JFrame {
 				textFieldPreco.setText("");
 			}
 		});
-		btnAtualizar.setIcon(new ImageIcon(Fornecedor.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizar.setIcon(new ImageIcon(Fornecedor.class.getResource("/image/desktop_package.png")));
 		btnAtualizar.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAtualizar.setBounds(410, 305, 145, 35);
 		contentPane.add(btnAtualizar);
@@ -258,7 +258,7 @@ public class Fornecedor extends JFrame {
 				dispose();
 			}
 		});
-		btnFechar.setIcon(new ImageIcon(Fornecedor.class.getResource("/image/user_interface/provider.png")));
+		btnFechar.setIcon(new ImageIcon(Fornecedor.class.getResource("/image/provider.png")));
 		btnFechar.setFont(new Font("Arial", Font.BOLD, 14));
 		btnFechar.setBounds(231, 355, 123, 35);
 		contentPane.add(btnFechar);

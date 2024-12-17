@@ -47,12 +47,31 @@ public class LoginDaoJDBC implements LoginDao {
 
 	@Override
 	public void insert(Login obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement pst = null;
+		try {
+			pst = conn.prepareStatement("INSERT INTO login (nome, nBM, senha, liberar_acesso, almox_hist, almox_edicao, almox_admin, oficina, gerencia, compras) VALUES "
+					+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			pst.setString(1, obj.getNome());
+			pst.setString(2, obj.getnBM());
+			pst.setString(3, obj.getSenha());
+			pst.setBoolean(4, obj.getLiberarAcesso());
+			pst.setBoolean(5, obj.getAlmoxHist());
+			pst.setBoolean(6, obj.getAlmoxEdicao());
+			pst.setBoolean(7, obj.getAlmoxAdmin());
+			pst.setBoolean(8, obj.getOficina());
+			pst.setBoolean(9, obj.getGerencia());
+			pst.setBoolean(10, obj.getCompras());
 
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DB.closeStatement(pst);
+		}
 	}
 	
 	@Override
-	public void update(Boolean LiberarAcesso,Boolean AlmoxHist, Boolean AlmoxEdicao, Boolean AlmoxAdmin, Boolean Oficina, Boolean Gerencia, Boolean Compras, String Senha, Login obj) {
+	public void update(Boolean LiberarAcesso, Boolean AlmoxHist, Boolean AlmoxEdicao, Boolean AlmoxAdmin, Boolean Oficina, Boolean Gerencia, Boolean Compras, String Senha, Login obj) {
 		PreparedStatement pst = null;
 		try {
 			pst = conn.prepareStatement("UPDATE login SET liberar_acesso = ?, almox_hist = ?, almox_edicao = ?, almox_admin = ?, oficina = ?, gerencia = ?, compras = ?, senha = ? WHERE id_login = ?");
@@ -70,7 +89,6 @@ public class LoginDaoJDBC implements LoginDao {
 			e.printStackTrace();
 		} finally {
 			DB.closeStatement(pst);
-			
 		}
 	}
 
@@ -80,9 +98,9 @@ public class LoginDaoJDBC implements LoginDao {
 		try {
 			pst = conn.prepareStatement("DELETE FROM login WHERE id_login=?");
 			pst.setInt(1, id);
-			pst.executeQuery();
+			pst.executeUpdate();
 		} catch (SQLException e) {
-			throw new DbException(e.getMessage());
+			e.printStackTrace();
 		} finally {
 			DB.closeStatement(pst);
 		}

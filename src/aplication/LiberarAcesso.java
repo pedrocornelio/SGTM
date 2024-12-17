@@ -20,6 +20,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
+import java.text.ParseException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -52,7 +53,7 @@ public class LiberarAcesso extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable tableAcesso;
+	public static JTable tableAcesso;
 
 	/**
 	 * Launch the application.
@@ -88,7 +89,7 @@ public class LiberarAcesso extends JFrame {
 	public LiberarAcesso() {
 		
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(LiberarAcesso.class.getResource("/image/user_interface/admin.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(LiberarAcesso.class.getResource("/image/admin.png")));
 		setTitle("LIBERAR ACESSO");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 580);
@@ -113,32 +114,7 @@ public class LiberarAcesso extends JFrame {
 		scrollPane.setViewportView(tableAcesso);
 		contentPane.add(scrollPane);
 
-		DefaultTableModel model = new DefaultTableModel();
-
-		loginDao.tableList(model);
-		tableAcesso.setModel(model);
-		tableAcesso.getColumnModel().getColumn(0).setMinWidth(10);
-		tableAcesso.getColumnModel().getColumn(0).setPreferredWidth(100);
-		tableAcesso.getColumnModel().getColumn(1).setMinWidth(10);
-		tableAcesso.getColumnModel().getColumn(1).setPreferredWidth(61);
-		tableAcesso.getColumnModel().getColumn(1).setMaxWidth(61);
-		tableAcesso.getColumnModel().getColumn(2).setMinWidth(10);
-		tableAcesso.getColumnModel().getColumn(1).setPreferredWidth(81);
-		tableAcesso.getColumnModel().getColumn(2).setMaxWidth(81);
-		tableAcesso.getColumnModel().getColumn(3).setMinWidth(20);
-		tableAcesso.getColumnModel().getColumn(3).setPreferredWidth(20);
-		tableAcesso.getColumnModel().getColumn(4).setMinWidth(40);
-		tableAcesso.getColumnModel().getColumn(4).setPreferredWidth(40);
-		tableAcesso.getColumnModel().getColumn(5).setMinWidth(20);
-		tableAcesso.getColumnModel().getColumn(5).setPreferredWidth(20);
-		tableAcesso.getColumnModel().getColumn(6).setMinWidth(20);
-		tableAcesso.getColumnModel().getColumn(6).setPreferredWidth(20);
-		tableAcesso.getColumnModel().getColumn(7).setMinWidth(20);
-		tableAcesso.getColumnModel().getColumn(7).setPreferredWidth(20);
-		tableAcesso.getColumnModel().getColumn(8).setMinWidth(20);
-		tableAcesso.getColumnModel().getColumn(8).setPreferredWidth(20);
-		tableAcesso.getColumnModel().getColumn(9).setMinWidth(20);
-		tableAcesso.getColumnModel().getColumn(9).setPreferredWidth(20);
+		table(loginDao);
 
 		JLabel lblNewLabel = new JLabel("TABELA DE INFORMA\u00C7\u00D5ES DE USU\u00C1RIO E ACESSO");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -198,7 +174,7 @@ public class LiberarAcesso extends JFrame {
 			}
 		});
 		chckbxAlmoxHist.setFont(new Font("Arial", Font.PLAIN, 12));
-		chckbxAlmoxHist.setBounds(375, 360, 129, 23);
+		chckbxAlmoxHist.setBounds(375, 360, 118, 23);
 		contentPane.add(chckbxAlmoxHist);
 
 		JCheckBox chckbxAlmoxEdicao = new JCheckBox("ALMOX EDI\u00C7\u00C3O");
@@ -215,7 +191,7 @@ public class LiberarAcesso extends JFrame {
 			}
 		});
 		chckbxAlmoxEdicao.setFont(new Font("Arial", Font.PLAIN, 12));
-		chckbxAlmoxEdicao.setBounds(375, 400, 129, 23);
+		chckbxAlmoxEdicao.setBounds(375, 400, 118, 23);
 		contentPane.add(chckbxAlmoxEdicao);
 
 		JCheckBox chckbxAlmoxAdmin = new JCheckBox("ALMOX ADMIN");
@@ -232,7 +208,7 @@ public class LiberarAcesso extends JFrame {
 			}
 		});
 		chckbxAlmoxAdmin.setFont(new Font("Arial", Font.PLAIN, 12));
-		chckbxAlmoxAdmin.setBounds(375, 440, 129, 23);
+		chckbxAlmoxAdmin.setBounds(375, 440, 118, 23);
 		contentPane.add(chckbxAlmoxAdmin);
 
 		JCheckBox chckbxOficina = new JCheckBox("OFICINA");
@@ -249,7 +225,7 @@ public class LiberarAcesso extends JFrame {
 			}
 		});
 		chckbxOficina.setFont(new Font("Arial", Font.PLAIN, 12));
-		chckbxOficina.setBounds(515, 360, 109, 23);
+		chckbxOficina.setBounds(495, 360, 97, 23);
 		contentPane.add(chckbxOficina);
 
 		JCheckBox chckbxGerencia = new JCheckBox("GERENCIA");
@@ -266,7 +242,7 @@ public class LiberarAcesso extends JFrame {
 			}
 		});
 		chckbxGerencia.setFont(new Font("Arial", Font.PLAIN, 12));
-		chckbxGerencia.setBounds(515, 400, 109, 23);
+		chckbxGerencia.setBounds(495, 400, 97, 23);
 		contentPane.add(chckbxGerencia);
 
 		JCheckBox chckbxCompras = new JCheckBox("COMPRAS");
@@ -283,7 +259,7 @@ public class LiberarAcesso extends JFrame {
 			}
 		});
 		chckbxCompras.setFont(new Font("Arial", Font.PLAIN, 12));
-		chckbxCompras.setBounds(515, 440, 109, 23);
+		chckbxCompras.setBounds(495, 440, 97, 23);
 		contentPane.add(chckbxCompras);
 
 		textFieldpassword = new JTextField();
@@ -307,19 +283,18 @@ public class LiberarAcesso extends JFrame {
 		});
 		btnSalvar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSalvar.setHorizontalTextPosition(SwingConstants.RIGHT);
-		btnSalvar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnSalvar.setIcon(new ImageIcon(LiberarAcesso.class.getResource("/image/user_interface/admin.png")));
-		btnSalvar.setBounds(340, 488, 120, 35);
+		btnSalvar.setFont(new Font("Arial", Font.BOLD, 14));
+		btnSalvar.setIcon(new ImageIcon(LiberarAcesso.class.getResource("/image/admin.png")));
+		btnSalvar.setBounds(327, 488, 130, 35);
 		contentPane.add(btnSalvar);
 
 		JButton btnAtualizar = new JButton("ATUALIZAR");
 		btnAtualizar.setEnabled(false);
-		btnAtualizar
-				.setIcon(new ImageIcon(LiberarAcesso.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizar.setIcon(new ImageIcon(LiberarAcesso.class.getResource("/image/desktop_package.png")));
 		btnAtualizar.setHorizontalTextPosition(SwingConstants.RIGHT);
 		btnAtualizar.setHorizontalAlignment(SwingConstants.LEFT);
-		btnAtualizar.setFont(new Font("Arial", Font.PLAIN, 12));
-		btnAtualizar.setBounds(633, 390, 129, 35);
+		btnAtualizar.setFont(new Font("Arial", Font.BOLD, 14));
+		btnAtualizar.setBounds(610, 371, 150, 35);
 		contentPane.add(btnAtualizar);
 
 		JLabel labelNome = new JLabel("NOME");
@@ -348,6 +323,35 @@ public class LiberarAcesso extends JFrame {
 		textPaneNome.setEditable(false);
 		textPaneNome.setBounds(63, 350, 150, 40);
 		contentPane.add(textPaneNome);
+		
+		JButton btnDeletar = new JButton("DELETAR");
+		btnDeletar.setIcon(new ImageIcon(LiberarAcesso.class.getResource("/image/admin_delete.png")));
+		btnDeletar.setHorizontalTextPosition(SwingConstants.RIGHT);
+		btnDeletar.setHorizontalAlignment(SwingConstants.LEFT);
+		btnDeletar.setFont(new Font("Arial", Font.BOLD, 14));
+		btnDeletar.setEnabled(false);
+		btnDeletar.setBounds(610, 417, 150, 35);
+		contentPane.add(btnDeletar);
+		
+		JButton btnAdicionar = new JButton("ADICIONAR");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AdicionarUsuario exibir = null;
+				try {
+					exibir = new AdicionarUsuario();
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				exibir.setVisible(true);
+			}
+		});
+		btnAdicionar.setIcon(new ImageIcon(LiberarAcesso.class.getResource("/image/admin_add_user.png")));
+		btnAdicionar.setHorizontalTextPosition(SwingConstants.RIGHT);
+		btnAdicionar.setHorizontalAlignment(SwingConstants.LEFT);
+		btnAdicionar.setFont(new Font("Arial", Font.BOLD, 14));
+		btnAdicionar.setEnabled(true);
+		btnAdicionar.setBounds(63, 488, 150, 35);
+		contentPane.add(btnAdicionar);
 
 		tableAcesso.addMouseListener(new MouseAdapter() {
 			@Override
@@ -356,6 +360,8 @@ public class LiberarAcesso extends JFrame {
 				textPaneNBM.setText((String) tableAcesso.getValueAt(tableAcesso.getSelectedRow(), 1));
 				textPaneNome.setText((String) tableAcesso.getValueAt(tableAcesso.getSelectedRow(), 0));
 				btnAtualizar.setEnabled(true);
+				btnDeletar.setEnabled(true);
+				btnAdicionar.setEnabled(false);
 				chckbxLiberarAcesso.setEnabled(true);
 				chckbxAlmoxAdmin.setEnabled(true);
 				chckbxAlmoxEdicao.setEnabled(true);
@@ -410,37 +416,122 @@ public class LiberarAcesso extends JFrame {
 			}
 		});
 
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				switch(JOptionPane.showConfirmDialog(null, "DESEJA EXCLUIR O USUÁRIO?","AVISO",JOptionPane.YES_NO_OPTION)) {
+					case 0:
+						loginDao.deleteById(loginDao.findByNBM(textPaneNBM.getText()).getIdlogin());
+						checkBoxLimpar(chckbxLiberarAcesso, chckbxAlmoxHist, chckbxAlmoxEdicao, chckbxAlmoxAdmin, chckbxOficina, chckbxGerencia, chckbxCompras, btnAtualizar, btnDeletar);
+						table(loginDao);
+						btnAdicionar.setEnabled(true);
+						JOptionPane.showMessageDialog(null, "USUÁRIO EXCLUIDO COM SUCESSO", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+					break;
+					case 1:
+						checkBoxLimpar(chckbxLiberarAcesso, chckbxAlmoxHist, chckbxAlmoxEdicao, chckbxAlmoxAdmin, chckbxOficina, chckbxGerencia, chckbxCompras, btnAtualizar, btnDeletar);
+						btnAdicionar.setEnabled(true);
+						JOptionPane.showMessageDialog(null, "NENHUM DADO ALTERADO", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+					break;
+				}
+			}
+
+			private void checkBoxLimpar(JCheckBox chckbxLiberarAcesso, JCheckBox chckbxAlmoxHist,
+					JCheckBox chckbxAlmoxEdicao, JCheckBox chckbxAlmoxAdmin, JCheckBox chckbxOficina,
+					JCheckBox chckbxGerencia, JCheckBox chckbxCompras, JButton btnAtualizar, JButton btnDeletar) {
+				textPaneNome.setText("");
+				textFieldpassword.setText("");
+				textPaneNBM.setText("");
+				btnAtualizar.setEnabled(false);
+				btnDeletar.setEnabled(false);
+				chckbxLiberarAcesso.setEnabled(false);
+				chckbxAlmoxAdmin.setEnabled(false);
+				chckbxAlmoxEdicao.setEnabled(false);
+				chckbxAlmoxHist.setEnabled(false);
+				chckbxOficina.setEnabled(false);
+				chckbxGerencia.setEnabled(false);
+				chckbxCompras.setEnabled(false);
+				LiberarAcesso = (false);
+				AlmoxHist = (false);
+				AlmoxEdicao = (false);
+				AlmoxAdmin = (false);
+				Oficina = (false);
+				Gerencia = (false);
+				Compras = (false);
+				Senha = null;
+			}
+		});
+		
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				Senha = textFieldpassword.getText() ;
 				switch(JOptionPane.showConfirmDialog(null, "DESEJA SALVAR AS ALTERAÇÕES?","AVISO",JOptionPane.YES_NO_OPTION)) {
 					case 0:
 						loginDao.update(LiberarAcesso, AlmoxHist, AlmoxEdicao, AlmoxAdmin, Oficina, Gerencia, Compras, Senha, loginDao.findByNBM(textPaneNBM.getText()));
-						btnAtualizar.setEnabled(false);
-						chckbxLiberarAcesso.setEnabled(false);
-						chckbxAlmoxAdmin.setEnabled(false);
-						chckbxAlmoxEdicao.setEnabled(false);
-						chckbxAlmoxHist.setEnabled(false);
-						chckbxOficina.setEnabled(false);
-						chckbxGerencia.setEnabled(false);
-						chckbxCompras.setEnabled(false);
-						LiberarAcesso = (false);
-						AlmoxHist = (false);
-						AlmoxEdicao = (false);
-						AlmoxAdmin = (false);
-						Oficina = (false);
-						Gerencia = (false);
-						Compras = (false);
-						Senha = null;
+						checkBoxLimpar(chckbxLiberarAcesso, chckbxAlmoxHist, chckbxAlmoxEdicao, chckbxAlmoxAdmin, chckbxOficina, chckbxGerencia, chckbxCompras, btnAtualizar, btnDeletar);
+						table(loginDao);
+						btnAdicionar.setEnabled(true);
 						JOptionPane.showMessageDialog(null, "SENHA E ACESSOS DO USUÁRIO ATUALIZADOS", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 					break;
 					case 1:
+						checkBoxLimpar(chckbxLiberarAcesso, chckbxAlmoxHist, chckbxAlmoxEdicao, chckbxAlmoxAdmin, chckbxOficina, chckbxGerencia, chckbxCompras, btnAtualizar, btnDeletar);
+						btnAdicionar.setEnabled(true);
 						JOptionPane.showMessageDialog(null, "NENHUM DADO ALTERADO", "AVISO", JOptionPane.INFORMATION_MESSAGE);
 					break;
-				}
-				
+				}	
+			}
+			
+			private void checkBoxLimpar(JCheckBox chckbxLiberarAcesso, JCheckBox chckbxAlmoxHist,
+					JCheckBox chckbxAlmoxEdicao, JCheckBox chckbxAlmoxAdmin, JCheckBox chckbxOficina,
+					JCheckBox chckbxGerencia, JCheckBox chckbxCompras, JButton btnAtualizar, JButton btnDeletar) {
+				textPaneNome.setText("");
+				textFieldpassword.setText("");
+				textPaneNBM.setText("");
+				btnAtualizar.setEnabled(false);
+				btnDeletar.setEnabled(false);
+				chckbxLiberarAcesso.setEnabled(false);
+				chckbxAlmoxAdmin.setEnabled(false);
+				chckbxAlmoxEdicao.setEnabled(false);
+				chckbxAlmoxHist.setEnabled(false);
+				chckbxOficina.setEnabled(false);
+				chckbxGerencia.setEnabled(false);
+				chckbxCompras.setEnabled(false);
+				LiberarAcesso = (false);
+				AlmoxHist = (false);
+				AlmoxEdicao = (false);
+				AlmoxAdmin = (false);
+				Oficina = (false);
+				Gerencia = (false);
+				Compras = (false);
+				Senha = null;
 			}
 		});
 
+	}
+
+	private void table(LoginDao loginDao) {
+		DefaultTableModel model = new DefaultTableModel();
+		loginDao.tableList(model);
+		tableAcesso.setModel(model);
+		tableAcesso.getColumnModel().getColumn(0).setMinWidth(10);
+		tableAcesso.getColumnModel().getColumn(0).setPreferredWidth(100);
+		tableAcesso.getColumnModel().getColumn(1).setMinWidth(10);
+		tableAcesso.getColumnModel().getColumn(1).setPreferredWidth(61);
+		tableAcesso.getColumnModel().getColumn(1).setMaxWidth(61);
+		tableAcesso.getColumnModel().getColumn(2).setMinWidth(10);
+		tableAcesso.getColumnModel().getColumn(1).setPreferredWidth(81);
+		tableAcesso.getColumnModel().getColumn(2).setMaxWidth(81);
+		tableAcesso.getColumnModel().getColumn(3).setMinWidth(20);
+		tableAcesso.getColumnModel().getColumn(3).setPreferredWidth(20);
+		tableAcesso.getColumnModel().getColumn(4).setMinWidth(40);
+		tableAcesso.getColumnModel().getColumn(4).setPreferredWidth(40);
+		tableAcesso.getColumnModel().getColumn(5).setMinWidth(20);
+		tableAcesso.getColumnModel().getColumn(5).setPreferredWidth(20);
+		tableAcesso.getColumnModel().getColumn(6).setMinWidth(20);
+		tableAcesso.getColumnModel().getColumn(6).setPreferredWidth(20);
+		tableAcesso.getColumnModel().getColumn(7).setMinWidth(20);
+		tableAcesso.getColumnModel().getColumn(7).setPreferredWidth(20);
+		tableAcesso.getColumnModel().getColumn(8).setMinWidth(20);
+		tableAcesso.getColumnModel().getColumn(8).setPreferredWidth(20);
+		tableAcesso.getColumnModel().getColumn(9).setMinWidth(20);
+		tableAcesso.getColumnModel().getColumn(9).setPreferredWidth(20);
 	}
 }

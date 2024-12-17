@@ -79,12 +79,13 @@ public class Oficina extends JFrame {
 	
 	@SuppressWarnings({ "deprecation" })
 	public Oficina() throws ParseException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Oficina.class.getResource("/image/user_interface/gear.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Oficina.class.getResource("/image/gear.png")));
 		setTitle("OFICINA");
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 660, 560);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
+		contentPane.setVisible(false);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
@@ -93,6 +94,7 @@ public class Oficina extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnViatura = new JMenu("VIATURA");
+		mnViatura.setVisible(false);
 		mnViatura.setToolTipText("JANELA DE LAN\u00C7AMENTO DE MANUTEN\u00C7\u00C3O");
 		mnViatura.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		menuBar.add(mnViatura);
@@ -105,7 +107,7 @@ public class Oficina extends JFrame {
 			}
 		});
 		mntmOrdemManutencao.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.ALT_MASK));
-		mntmOrdemManutencao.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/maintenance_store.png")));
+		mntmOrdemManutencao.setIcon(new ImageIcon(Oficina.class.getResource("/image/maintenance_store.png")));
 		mntmOrdemManutencao.setFont(new Font("Arial", Font.BOLD, 14));
 		mnViatura.add(mntmOrdemManutencao);
 		
@@ -116,14 +118,13 @@ public class Oficina extends JFrame {
 		JMenuItem mntmRequisicao = new JMenuItem("REQUISI\u00C7\u00C2O");
 		mntmRequisicao.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.ALT_MASK));
 		mntmRequisicao.setToolTipText("JANELA DE SOLICITA\u00C7\u00C3O DE PE\u00C7AS PARA MANUTEN\u00C7\u00C3O");
-		mntmRequisicao.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/requisition_packaeg.png")));
+		mntmRequisicao.setIcon(new ImageIcon(Oficina.class.getResource("/image/requisition_packaeg.png")));
 		mntmRequisicao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Requisitar exibir = null;
 				try {
 					exibir = new Requisitar();
 				} catch (ParseException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				exibir.setVisible(true);
@@ -134,7 +135,7 @@ public class Oficina extends JFrame {
 		
 		JMenuItem mntmExcluirRequisio = new JMenuItem("EXCLUR REQUISI\u00C7\u00C2O");
 		mntmExcluirRequisio.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.ALT_MASK));
-		mntmExcluirRequisio.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/requisition_edition.png")));
+		mntmExcluirRequisio.setIcon(new ImageIcon(Oficina.class.getResource("/image/requisition_edition.png")));
 		mntmExcluirRequisio.setToolTipText("JANELA PARA EXCLUS\u00C3O DE REQUISI\u00C7\u00C3O DE PE\u00C7AS");
 		mntmExcluirRequisio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -157,13 +158,13 @@ public class Oficina extends JFrame {
 		
 		JMenuItem mntmCredit = new JMenuItem("CR\u00C9DITOS");
 		mntmCredit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK));
-		mntmCredit.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/credit_team.png")));
+		mntmCredit.setIcon(new ImageIcon(Oficina.class.getResource("/image/credit_team.png")));
 		mntmCredit.setToolTipText("JANELA COM OS CR\u00C9DITOS DE TODOS OS ENVOLVIDOS NO PROJETO");
 		mntmCredit.setFont(new Font("Arial", Font.BOLD, 14));
 		mnInfo.add(mntmCredit);
 		
 		JMenuItem mntmAjuda = new JMenuItem("AJUDA");
-		mntmAjuda.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/help.png")));
+		mntmAjuda.setIcon(new ImageIcon(Oficina.class.getResource("/image/help.png")));
 		mntmAjuda.setAccelerator(getKeyStroke(KeyEvent.VK_F1, 0));
 		mntmAjuda.setToolTipText("JANELA DE AJUDA");
 		mntmAjuda.setFont(new Font("Arial", Font.BOLD, 14));
@@ -177,7 +178,6 @@ public class Oficina extends JFrame {
 		});
 
 		JTabbedPane tabbedPane = new JTabbedPane(SwingConstants.TOP);
-		tabbedPane.setVisible(false);
 		
 		JPanel panelPatio = new JPanel();
 		panelPatio.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -194,10 +194,10 @@ public class Oficina extends JFrame {
 		scrollPane_2.setViewportView(tablePatio);
 		
 		JButton btnRefresh = new JButton("");
-		btnRefresh.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/refresh.png")));
+		btnRefresh.setIcon(new ImageIcon(Oficina.class.getResource("/image/refresh.png")));
 		
 		JButton print = new JButton("");
-		print.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/pdf.png")));
+		print.setIcon(new ImageIcon(Oficina.class.getResource("/image/pdf.png")));
 		print.setAlignmentX(1.0f);
 		GroupLayout gl_panelPatio = new GroupLayout(panelPatio);
 		gl_panelPatio.setHorizontalGroup(
@@ -295,12 +295,12 @@ public class Oficina extends JFrame {
 		panelHistoricoVTR.add(lblInformacoesHistricoBaixa);
 		
 		JButton btnRefresh_1 = new JButton("");
-		btnRefresh_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/refresh.png")));
+		btnRefresh_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/refresh.png")));
 		btnRefresh_1.setBounds(303, 7, 35, 35);
 		panelHistoricoVTR.add(btnRefresh_1);
 		
 		JButton print_1 = new JButton("");
-		print_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/pdf.png")));
+		print_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/pdf.png")));
 		print_1.setAlignmentX(1.0f);
 		print_1.setBounds(589, 10, 28, 28);
 		panelHistoricoVTR.add(print_1);
@@ -327,12 +327,12 @@ public class Oficina extends JFrame {
 		scrollPane_1.setViewportView(tableHistAlta);
 		
 		JButton btnRefresh_1_1 = new JButton("");
-		btnRefresh_1_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/refresh.png")));
+		btnRefresh_1_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/refresh.png")));
 		btnRefresh_1_1.setBounds(303, 7, 35, 35);
 		panelHistoricoAlta.add(btnRefresh_1_1);
 		
 		JButton print_1_1 = new JButton("");
-		print_1_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/user_interface/pdf.png")));
+		print_1_1.setIcon(new ImageIcon(Oficina.class.getResource("/image/pdf.png")));
 		print_1_1.setAlignmentX(1.0f);
 		print_1_1.setBounds(589, 10, 28, 28);
 		panelHistoricoAlta.add(print_1_1);

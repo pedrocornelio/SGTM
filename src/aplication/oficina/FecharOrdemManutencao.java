@@ -93,7 +93,7 @@ public class FecharOrdemManutencao extends JFrame {
 	 */
 	public FecharOrdemManutencao() throws ParseException {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(FecharOrdemManutencao.class.getResource("/image/user_interface/gear_maintenance.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FecharOrdemManutencao.class.getResource("/image/gear_maintenance.png")));
 		setTitle("FECHAR ORDEM DE MANUTEN\u00C7\u00C3O");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 530, 600);
@@ -390,7 +390,7 @@ public class FecharOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitarAlta.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitarAlta.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitarAlta.setBounds(159, 358, 38, 35);
 		contentPane.add(btnSearchMilitarAlta);
 		
@@ -404,7 +404,7 @@ public class FecharOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitarLiberacao.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitarLiberacao.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitarLiberacao.setBounds(159, 438, 38, 35);
 		contentPane.add(btnSearchMilitarLiberacao);
 		

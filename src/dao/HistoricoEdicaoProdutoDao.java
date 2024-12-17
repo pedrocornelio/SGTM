@@ -13,4 +13,6 @@ public interface HistoricoEdicaoProdutoDao {
 
 	void insertDescOriginalMedida(HistoricoEdicaoProduto historicoEdicaoProduto);
 
+	void insertFornecedor(HistoricoEdicaoProduto historicoEdicaoProduto);
+
 }

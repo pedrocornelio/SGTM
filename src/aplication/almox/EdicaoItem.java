@@ -111,7 +111,7 @@ public class EdicaoItem extends JFrame {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public EdicaoItem() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(EdicaoItem.class.getResource("/image/user_interface/issue.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EdicaoItem.class.getResource("/image/issue.png")));
 		setTitle("EDI\u00C7\u00C3O DE ITEM");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 860, 565);
@@ -317,7 +317,7 @@ public class EdicaoItem extends JFrame {
 				exibir.setVisible(true);
 			}
 		});
-		btnEquivalencia.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/user_interface/equivalence.png")));
+		btnEquivalencia.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/equivalence.png")));
 		btnEquivalencia.setFont(new Font("Arial", Font.BOLD, 14));
 		
 		btnAtualizar = new JButton("ATUALIZAR");
@@ -382,7 +382,7 @@ public class EdicaoItem extends JFrame {
 			}
 		});
 		btnAtualizar.setEnabled(false);
-		btnAtualizar.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizar.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/desktop_package.png")));
 		btnAtualizar.setFont(new Font("Arial", Font.BOLD, 14));
 		
 		btnEditar = new JButton("FECHAR");
@@ -392,7 +392,7 @@ public class EdicaoItem extends JFrame {
 			}
 		});
 		btnEditar.setFont(new Font("Arial", Font.BOLD, 14));
-		btnEditar.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/user_interface/issue.png")));
+		btnEditar.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/issue.png")));
 		
 		comboBoxMedida = new JComboBox();
 		comboBoxMedida.setBackground(Color.WHITE);
@@ -411,7 +411,7 @@ public class EdicaoItem extends JFrame {
 		});
 		btnFornecedor.setEnabled(false);
 		btnFornecedor.setFont(new Font("Arial", Font.BOLD, 14));
-		btnFornecedor.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/user_interface/provider.png")));
+		btnFornecedor.setIcon(new ImageIcon(EdicaoItem.class.getResource("/image/provider.png")));
 		
 		lblEspaco = new JLabel("    ");
 		

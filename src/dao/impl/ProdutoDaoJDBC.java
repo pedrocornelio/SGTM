@@ -643,4 +643,122 @@ public class ProdutoDaoJDBC implements ProdutoDao {
 				DB.closeResultSet(rs);
 			}
 		}
+		
+		// CONSULTA PARA A TABELA DO ESTOQUE MINIMO
+		@Override
+		public DefaultTableModel tableEstoqueMinimo(DefaultTableModel model) {
+			PreparedStatement pst = null;
+			ResultSet rs = null;
+
+			//model.addColumn("LOCAL");
+			model.addColumn("CSM");
+			model.addColumn("DESCRIÇÃO");
+			model.addColumn("MONTADORA");
+			model.addColumn("COD.MONTADORA");
+			model.addColumn("MARCA");
+			model.addColumn("COD.RECEBIDO");
+			model.addColumn("Q");
+			//model.addColumn("");
+			model.addColumn("Q.MINIMA");
+			//model.addColumn("APLICAÇÂO");
+			//model.addColumn("V");
+			model.addColumn("EM FALTA");
+
+			try {
+				pst = conn.prepareStatement(
+						"SELECT l.localizacao 'LOCAL', p.id_produto 'COD.CSM', p.descricao 'DESCRICAO', m.nome_montadora 'MONTADORA', cm.CODIGOMONTADORA 'COD.MONTADORA', cr.marca 'MARCA', cr.CODIGORECEBIDO 'COD.RECEBIDO', p.quantidade'QUANTIDADE', p.quantidade_minima'QUANTIDADEMINIMA', med.medida 'MEDIDA', app.APLICACAO, IF(p.quantidade > p.quantidade_minima, 1, IF(p.quantidade = p.quantidade_minima,0,-1)) 'VALIDADOR', (p.quantidade - p.quantidade_minima)'COMPLEMENTAR'\r\n" + 
+						"FROM produto AS p\r\n" + 
+						"	LEFT JOIN (SELECT p.*, group_concat(trim(app.modelo),' ' ,app.ano) 'APLICACAO' FROM aplicacao AS app, produto AS p WHERE app.id_produto = p.id_produto GROUP BY app.id_produto) as app\r\n" + 
+						"	ON p.id_produto = app.id_produto\r\n" + 
+						"	LEFT JOIN (SELECT p.*, group_concat(cm.codigo_montadora SEPARATOR ' / ') 'CODIGOMONTADORA', group_concat(cm.id_montadora)'id_montadora' FROM codigo_montadora AS cm, produto AS p WHERE cm.id_produto = p.id_produto GROUP BY cm.id_produto) AS cm\r\n" + 
+						"	ON p.id_produto = cm.id_produto\r\n" + 
+						"	LEFT JOIN montadora AS m\r\n" + 
+						"	ON m.id_montadora = cm.id_montadora\r\n" + 
+						"	LEFT JOIN localizacao AS l\r\n" + 
+						"	ON l.id_localizacao = p.id_localizacao\r\n" + 
+						"	LEFT JOIN (SELECT p.*, group_concat(cr.codigo_recebido SEPARATOR ' / ') 'CODIGORECEBIDO', group_concat(cr.marca SEPARATOR ' / ') 'marca' FROM codigo_recebido AS cr, produto AS p WHERE cr.id_produto = p.id_produto GROUP BY cr.id_produto) AS cr\r\n" + 
+						"	ON cr.id_produto = p.id_produto\r\n" + 
+						"	LEFT JOIN medida AS med\r\n" + 
+						"	ON med.id_medida = p.id_medida\r\n" +
+						"	WHERE (p.quantidade = p.quantidade_minima) OR (p.quantidade < p.quantidade_minima) \r\n" +
+						"ORDER BY COMPLEMENTAR, l.localizacao, p.id_produto, p.descricao, m.nome_montadora ASC");
+
+				rs = pst.executeQuery();
+				while (rs.next()) {
+					model.addRow(new Object[] { //rs.getString("LOCAL"),
+							rs.getString("COD.CSM"),
+							rs.getString("DESCRICAO"),
+							rs.getString("MONTADORA"),
+							rs.getString("COD.MONTADORA"),
+							rs.getString("MARCA"), 
+							rs.getString("COD.RECEBIDO"),
+							rs.getInt("QUANTIDADE"), 
+							rs.getInt("QUANTIDADEMINIMA"),
+							//rs.getString("MEDIDA"), 
+							//rs.getString("APLICACAO"),
+							//rs.getString("VALIDADOR")
+							rs.getInt("COMPLEMENTAR"),
+							});
+				}
+				return model;
+			} catch (SQLException e) {
+				throw new DbException(e.getMessage());
+			} finally {
+				DB.closeStatement(pst);
+				DB.closeResultSet(rs);
+			}
+		}
+		
+		// CONSULTA PARA A TABELA DO ESTOQUE MINIMO
+		@Override
+		public DefaultTableModel tablePecasMaiorSaida(DefaultTableModel model, String dataInicio, String dataFim) {
+			PreparedStatement pst = null;
+			ResultSet rs = null;
+
+			model.addColumn("CSM");
+			model.addColumn("COD.MONTADORA");
+			model.addColumn("MARCA");
+			model.addColumn("COD.RECEBIDO");
+			model.addColumn("DESCRIÇÃO");
+			model.addColumn("TOTAL");
+
+			try {
+				pst = conn.prepareStatement("SELECT p.id_produto 'COD.CSM', cm.CODIGOMONTADORA 'COD.MONTADORA', cr.marca 'MARCA', cr.CODIGORECEBIDO 'COD.RECEBIDO', p.descricao 'DESCRIÇÃO', SUM(hps.quantidade_saida) 'TOTAL'\r\n"
+						+ "from historico_produto_saida as hps \r\n"
+						+ "	JOIN produto as p\r\n"
+						+ "    ON p.id_produto = hps.id_produto\r\n"
+						+ "    LEFT JOIN (SELECT p.*, group_concat(cr.codigo_recebido SEPARATOR ' / ') 'CODIGORECEBIDO', group_concat(cr.marca SEPARATOR ' / ') 'marca' FROM codigo_recebido AS cr, produto AS p WHERE cr.id_produto = p.id_produto GROUP BY cr.id_produto) AS cr\r\n"
+						+ "	on cr.id_produto = p.id_produto\r\n"
+						+ "	LEFT JOIN (SELECT p.*, group_concat(cm.codigo_montadora SEPARATOR ' / ') 'CODIGOMONTADORA', group_concat(cm.id_montadora)'id_montadora' FROM codigo_montadora AS cm, produto AS p WHERE cm.id_produto = p.id_produto GROUP BY cm.id_produto) AS cm\r\n"
+						+ "	on cm.id_produto = p.id_produto\r\n"
+						+ "	JOIN montadora as m\r\n"
+						+ "	on m.id_montadora = cm.id_montadora\r\n"
+						+ "WHERE hps.data_saida BETWEEN ? AND ? \r\n"
+						+ "group by hps.id_produto \r\n"
+						+ "order by TOTAL desc;");
+				
+				pst.setString(1, dataInicio);
+				pst.setString(2, dataFim);
+				
+				rs = pst.executeQuery();
+				
+				while (rs.next()) {
+					model.addRow(new Object[] { 
+							rs.getString("COD.CSM"), 
+							rs.getString("COD.MONTADORA"),
+							rs.getString("MARCA"), 
+							rs.getString("COD.RECEBIDO"), 
+							rs.getString("DESCRIÇÃO"),
+							rs.getString("TOTAL"), 
+							});
+				}
+				return model;
+			} catch (SQLException e) {
+				throw new DbException(e.getMessage());
+			} finally {
+				DB.closeStatement(pst);
+				DB.closeResultSet(rs);
+			}
+		}
+		
 }

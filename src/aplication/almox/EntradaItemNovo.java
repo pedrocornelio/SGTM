@@ -125,7 +125,7 @@ public class EntradaItemNovo extends JFrame {
 	public EntradaItemNovo() throws ParseException {
 
 		setLocationRelativeTo(null);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(EntradaItemNovo.class.getResource("/image/user_interface/insercion_warehouse.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EntradaItemNovo.class.getResource("/image/insercion_warehouse.png")));
 		setTitle("ENTRADA DE ITEM NOVO");
 		setFont(new Font("Arial", Font.PLAIN, 12));
 		setResizable(false);
@@ -578,7 +578,7 @@ public class EntradaItemNovo extends JFrame {
 				exibir.setVisible(true);
 			}
 		});
-		btnSearchProduto.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/user_interface/search_product.png")));
+		btnSearchProduto.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/search_product.png")));
 		btnSearchProduto.setMargin(new Insets(2, 2, 2, 2));
 		btnSearchProduto.setBounds(363, 142, 38, 35);
 		contentPane.add(btnSearchProduto);
@@ -609,7 +609,7 @@ public class EntradaItemNovo extends JFrame {
 		contentPane.add(separator_2);
 
 		JButton btnPlus = new JButton("");
-		btnPlus.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/user_interface/up.png")));
+		btnPlus.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/insert.png")));
 		btnPlus.setBounds(799, 261, 30, 30);
 		btnPlus.addActionListener(new ActionListener() {
 			@Override
@@ -627,7 +627,7 @@ public class EntradaItemNovo extends JFrame {
 		contentPane.add(btnPlus);
 
 		JButton btnMinus = new JButton("");
-		btnMinus.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/user_interface/trash.png")));
+		btnMinus.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/trash.png")));
 		btnMinus.setBounds(799, 326, 30, 30);
 		btnMinus.addActionListener(new ActionListener() {
 			@Override
@@ -688,7 +688,7 @@ public class EntradaItemNovo extends JFrame {
 		btnSaveInsert.setHorizontalTextPosition(SwingConstants.RIGHT);
 		btnSaveInsert.setMargin(new Insets(2, 5, 2, 5));
 		btnSaveInsert.setIconTextGap(0);
-		btnSaveInsert.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/user_interface/insercion_warehouse.png")));
+		btnSaveInsert.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/insercion_warehouse.png")));
 		btnSaveInsert.setFont(new Font("Arial", Font.BOLD, 14));
 		btnSaveInsert.addActionListener(new ActionListener() {
 			@Override
@@ -869,7 +869,7 @@ public class EntradaItemNovo extends JFrame {
 				textFieldAno.setText(vtr.getAno());
 			}
 		});
-		btnSearchPlaca.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/user_interface/search.png")));
+		btnSearchPlaca.setIcon(new ImageIcon(EntradaItemNovo.class.getResource("/image/search.png")));
 		btnSearchPlaca.setMargin(new Insets(2, 2, 2, 2));
 		btnSearchPlaca.setBounds(755, 153, 38, 35);
 		contentPane.add(btnSearchPlaca);

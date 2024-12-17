@@ -63,7 +63,7 @@ public class ProcurarProdutoNovo extends JFrame {
 	public ProcurarProdutoNovo() {
 		
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(ProcurarProdutoNovo.class.getResource("/image/user_interface/search_product.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ProcurarProdutoNovo.class.getResource("/image/search_product.png")));
 		setTitle("SELECIONAR ITEM");
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

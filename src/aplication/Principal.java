@@ -50,6 +50,7 @@ import dao.LoginDao;
 import db.DB;
 import entities.HistoricoLogin;
 import utilities.Ajuda;
+import javax.swing.JCheckBox;
 
 public class Principal extends JFrame {
 
@@ -96,11 +97,11 @@ public class Principal extends JFrame {
 		setFont(new Font("Arial", Font.PLAIN, 12));
 		setName("frame1");
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/image/user_interface/csm.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/image/csm.png")));
 		setResizable(false);
 		setTitle("LOGIN");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		setSize(460,300);
+		setSize(480,330);
 		setLocationRelativeTo(null);
 		
 		LoginDao loginDao = DaoFactory.createLoginDao();
@@ -118,7 +119,7 @@ public class Principal extends JFrame {
 		mntmLiberarAcesso.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmLiberarAcesso.setToolTipText("JANELA ADMINISTRATIVA PARA CONTROLE DE ACESSO AOS M\u00D3DULOS");
 		mntmLiberarAcesso.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.ALT_MASK));
-		mntmLiberarAcesso.setIcon(new ImageIcon(Principal.class.getResource("/image/user_interface/admin.png")));
+		mntmLiberarAcesso.setIcon(new ImageIcon(Principal.class.getResource("/image/admin.png")));
 		mnAdmin.add(mntmLiberarAcesso);
 		mntmLiberarAcesso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,14 +141,14 @@ public class Principal extends JFrame {
 
 		JMenuItem mntmCredit = new JMenuItem("CR\u00C9DITOS");
 		mntmCredit.setFont(new Font("Arial", Font.BOLD, 14));
-		mntmCredit.setIcon(new ImageIcon(Principal.class.getResource("/image/user_interface/credit_team.png")));
+		mntmCredit.setIcon(new ImageIcon(Principal.class.getResource("/image/credit_team.png")));
 		mntmCredit.setToolTipText("JANELA COM OS CR\u00C9DITOS DOS ENVOLVIDOS NO PROJETO");
 		mntmCredit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK));
 		mnInfo.add(mntmCredit);
 
 		JMenuItem mntmAjuda = new JMenuItem("AJUDA");
 		mntmAjuda.setFont(new Font("Arial", Font.BOLD, 14));
-		mntmAjuda.setIcon(new ImageIcon(Principal.class.getResource("/image/user_interface/help.png")));
+		mntmAjuda.setIcon(new ImageIcon(Principal.class.getResource("/image/help.png")));
 		mntmAjuda.setToolTipText("JANELA DE AJUDA");
 		mntmAjuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
 		mnInfo.add(mntmAjuda);
@@ -171,16 +172,16 @@ public class Principal extends JFrame {
 				}
 			}
 		});
-		textFieldUser.setBounds(284, 35, 114, 28);
+		textFieldUser.setBounds(314, 35, 114, 28);
 		textFieldUser.setColumns(10);
 
 		JLabel lblusuario = new JLabel("USUÁRIO");
-		lblusuario.setBounds(200, 35, 60, 29);
+		lblusuario.setBounds(230, 35, 60, 29);
 		lblusuario.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblusuario.setFont(new Font("Arial", Font.PLAIN, 14));
 
 		lblSenha = new JLabel("SENHA");
-		lblSenha.setBounds(204, 84, 56, 29);
+		lblSenha.setBounds(234, 84, 56, 29);
 		lblSenha.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 14));
 
@@ -193,12 +194,12 @@ public class Principal extends JFrame {
 				}
 			}
 		});
-		passwordField.setBounds(284, 84, 114, 28);
+		passwordField.setBounds(314, 84, 114, 28);
 
 		btnOkButton = new JButton("ENTRAR");
 		btnOkButton.setFont(new Font("Arial", Font.BOLD, 14));
 		btnOkButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnOkButton.setBounds(250, 182, 97, 34);	
+		btnOkButton.setBounds(281, 189, 97, 34);	
 		btnOkButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
@@ -259,7 +260,7 @@ public class Principal extends JFrame {
 
 		JLabel lblImage = new JLabel("");
 		lblImage.setIcon(new ImageIcon(Principal.class.getResource("/image/csmp.png")));
-		lblImage.setBounds(10, 11, 169, 205);
+		lblImage.setBounds(10, 11, 190, 234);
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.setLayout(null);
 		
@@ -274,7 +275,7 @@ public class Principal extends JFrame {
 		});
 		rdbtnAlmox.setSelected(true);
 		rdbtnAlmox.setFont(new Font("Arial", Font.PLAIN, 12));
-		rdbtnAlmox.setBounds(210, 123, 115, 23);
+		rdbtnAlmox.setBounds(244, 121, 115, 23);
 		contentPane.add(rdbtnAlmox);
 		bg.add(rdbtnAlmox);
 
@@ -288,7 +289,7 @@ public class Principal extends JFrame {
 			}
 		});
 		rdbtnOficina.setFont(new Font("Arial", Font.PLAIN, 12));
-		rdbtnOficina.setBounds(326, 123, 80, 23);
+		rdbtnOficina.setBounds(360, 121, 80, 23);
 		contentPane.add(rdbtnOficina);
 		bg.add(rdbtnOficina);
 
@@ -302,7 +303,7 @@ public class Principal extends JFrame {
 			}
 		});
 		rdbtnCompras.setFont(new Font("Arial", Font.PLAIN, 12));
-		rdbtnCompras.setBounds(210, 152, 100, 23);
+		rdbtnCompras.setBounds(244, 150, 100, 23);
 		contentPane.add(rdbtnCompras);
 		bg.add(rdbtnCompras);
 
@@ -316,7 +317,7 @@ public class Principal extends JFrame {
 			}
 		});
 		rdbtnGerencia.setFont(new Font("Arial", Font.PLAIN, 12));
-		rdbtnGerencia.setBounds(326, 152, 100, 23);
+		rdbtnGerencia.setBounds(360, 150, 100, 23);
 		contentPane.add(rdbtnGerencia);
 		bg.add(rdbtnGerencia);
 		
@@ -330,16 +331,34 @@ public class Principal extends JFrame {
 		Connection conn = DB.getConnection();
 		JLabel lblDBStatus = new JLabel("");
 		if (conn == null) {
-			lblDBStatus.setIcon(new ImageIcon(Principal.class.getResource("/image/user_interface/dbOff.png")));
+			lblDBStatus.setIcon(new ImageIcon(Principal.class.getResource("/image/dbOff.png")));
 			lblDBStatus.setToolTipText("SEM CONEX\u00C3O COM O BANCO DE DADOS");
 		} else {
-			lblDBStatus.setIcon(new ImageIcon(Principal.class.getResource("/image/user_interface/dbOn.png")));
+			lblDBStatus.setIcon(new ImageIcon(Principal.class.getResource("/image/dbOn.png")));
 			lblDBStatus.setToolTipText("BANCO DE DADOS CONECTADO");
 		}
 		lblDBStatus.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDBStatus.setBounds(390, 200, 35, 35);
+		lblDBStatus.setBounds(405, 188, 35, 35);
 		contentPane.add(lblDBStatus);
+		
+		JCheckBox chckbxTreinamento = new JCheckBox("TREINAMENTO?");
+		chckbxTreinamento.setHorizontalAlignment(SwingConstants.CENTER);
+		chckbxTreinamento.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				if (chckbxTreinamento.isSelected() == true) {
+					DB.conn = null;
+					DB.properties = "db_dev.properties";
+					DB.getConnection();
+				} else {
+					DB.conn = null;
+					DB.properties = "db.properties";
+					DB.getConnection();
+				}
+			}
+		});
+		chckbxTreinamento.setFont(new Font("Arial", Font.PLAIN, 12));
+		chckbxTreinamento.setBounds(264, 231, 131, 24);
+		contentPane.add(chckbxTreinamento);
 
 	}
-
 }

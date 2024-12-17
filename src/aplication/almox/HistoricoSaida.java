@@ -78,7 +78,7 @@ public class HistoricoSaida extends JFrame {
 	 */
 	public HistoricoSaida() throws ParseException {
 		setTitle("HIST\u00D3RICO DE SA\u00CDDA");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(HistoricoSaida.class.getResource("/image/user_interface/almox_calendar_requisition.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HistoricoSaida.class.getResource("/image/almox_calendar_requisition.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 650, 500);
 		contentPane = new JPanel();
@@ -177,7 +177,7 @@ public class HistoricoSaida extends JFrame {
 				tablePesquisa.getColumnModel().getColumn(11).setMaxWidth(25);
 			}
 		});
-		btnSearch.setIcon(new ImageIcon(HistoricoSaida.class.getResource("/image/user_interface/search.png")));
+		btnSearch.setIcon(new ImageIcon(HistoricoSaida.class.getResource("/image/search.png")));
 		
 		JButton btnFechar = new JButton(" FECHAR");
 		btnFechar.addActionListener(new ActionListener() {
@@ -188,7 +188,7 @@ public class HistoricoSaida extends JFrame {
 				dispose();
 			}
 		});
-		btnFechar.setIcon(new ImageIcon(HistoricoSaida.class.getResource("/image/user_interface/almox_calendar_requisition.png")));
+		btnFechar.setIcon(new ImageIcon(HistoricoSaida.class.getResource("/image/almox_calendar_requisition.png")));
 		btnFechar.setMargin(new Insets(2, 5, 2, 5));
 		btnFechar.setIconTextGap(0);
 		btnFechar.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -216,7 +216,7 @@ public class HistoricoSaida extends JFrame {
 				}
 			}
 		});
-		print.setIcon(new ImageIcon(HistoricoSaida.class.getResource("/image/user_interface/pdf.png")));
+		print.setIcon(new ImageIcon(HistoricoSaida.class.getResource("/image/pdf.png")));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

@@ -127,7 +127,7 @@ public class Entrada extends JFrame {
 	 * @throws ParseException
 	 */
 	public Entrada() throws ParseException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Entrada.class.getResource("/image/user_interface/insercion_car.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Entrada.class.getResource("/image/insercion_car.png")));
 		setTitle("ENTRADA DE ITEM EXISTENTE");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 920, 750);
@@ -350,7 +350,7 @@ public class Entrada extends JFrame {
 
 		btnPlus = new JButton("");
 		btnPlus.setEnabled(false);
-		btnPlus.setIcon(new ImageIcon(Saida.class.getResource("/image/user_interface/up.png")));
+		btnPlus.setIcon(new ImageIcon(Entrada.class.getResource("/image/insert.png")));
 		btnPlus.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -473,7 +473,7 @@ public class Entrada extends JFrame {
 		});
 
 		JButton btnMinus = new JButton("");
-		btnMinus.setIcon(new ImageIcon(Entrada.class.getResource("/image/user_interface/trash.png")));
+		btnMinus.setIcon(new ImageIcon(Entrada.class.getResource("/image/trash.png")));
 		btnMinus.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
@@ -497,7 +497,7 @@ public class Entrada extends JFrame {
 				exibir.setVisible(true);
 			}
 		});
-		btnNovasAplicacoes.setIcon(new ImageIcon(Entrada.class.getResource("/image/user_interface/desktop_package.png")));
+		btnNovasAplicacoes.setIcon(new ImageIcon(Entrada.class.getResource("/image/desktop_package.png")));
 
 		btnEntrada = new JButton("ENTRADA DE ITENS");
 		btnEntrada.setEnabled(false);
@@ -581,7 +581,7 @@ public class Entrada extends JFrame {
 				}
 			}
 		});
-		btnEntrada.setIcon(new ImageIcon(Entrada.class.getResource("/image/user_interface/insercion_car.png")));
+		btnEntrada.setIcon(new ImageIcon(Entrada.class.getResource("/image/insercion_car.png")));
 		btnEntrada.setFont(new Font("Arial", Font.BOLD, 14));
 		
 		JLabel lblObrigatorio = new JLabel("*OBS: CAMPOS OBRIGAT\u00D3RIOS");

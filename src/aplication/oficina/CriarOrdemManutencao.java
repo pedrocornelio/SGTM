@@ -92,7 +92,7 @@ public class CriarOrdemManutencao extends JFrame {
 	 */
 	public CriarOrdemManutencao() throws ParseException {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CriarOrdemManutencao.class.getResource("/image/user_interface/gear_maintenance.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CriarOrdemManutencao.class.getResource("/image/gear_maintenance.png")));
 		setTitle("CRIAR ORDEM DE MANUTEN\u00C7\u00C3O");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 550, 600);
@@ -193,7 +193,7 @@ public class CriarOrdemManutencao extends JFrame {
 				textFieldModelo.setText(vtr.getModelo());
 			}
 		});
-		btnSearchPlaca.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/user_interface/search.png")));
+		btnSearchPlaca.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/search.png")));
 		btnSearchPlaca.setBounds(377, 62, 38, 35);
 		contentPane.add(btnSearchPlaca);
 
@@ -248,7 +248,7 @@ public class CriarOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitar.setBounds(157, 166, 38, 35);
 		contentPane.add(btnSearchMilitar);
 
@@ -277,7 +277,7 @@ public class CriarOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar_1.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar_1.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitar_1.setBounds(157, 246, 38, 35);
 		contentPane.add(btnSearchMilitar_1);
 
@@ -328,7 +328,7 @@ public class CriarOrdemManutencao extends JFrame {
 		contentPane.add(lblRelatosVTR);
 
 		btnCriar = new JButton("CRIAR OM");
-		btnCriar.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/user_interface/gear_maintenance.png")));
+		btnCriar.setIcon(new ImageIcon(CriarOrdemManutencao.class.getResource("/image/gear_maintenance.png")));
 		btnCriar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

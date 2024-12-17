@@ -73,7 +73,7 @@ public class Gerencia extends JFrame {
 	 * Create the frame.
 	 */
 	public Gerencia() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Gerencia.class.getResource("/image/user_interface/manager.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Gerencia.class.getResource("/image/manager.png")));
 		setTitle("GERENCIA");
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 700, 600);
@@ -93,7 +93,7 @@ public class Gerencia extends JFrame {
 		lblInformaesDeEdio.setFont(new Font("Arial", Font.PLAIN, 13));
 		
 		JButton btnRefresh = new JButton("");
-		btnRefresh.setIcon(new ImageIcon(Gerencia.class.getResource("/image/user_interface/refresh.png")));
+		btnRefresh.setIcon(new ImageIcon(Gerencia.class.getResource("/image/refresh.png")));
 		btnRefresh.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -112,7 +112,7 @@ public class Gerencia extends JFrame {
 		});
 		
 		JButton print = new JButton("");
-		print.setIcon(new ImageIcon(Gerencia.class.getResource("/image/user_interface/pdf.png")));
+		print.setIcon(new ImageIcon(Gerencia.class.getResource("/image/pdf.png")));
 		print.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -207,7 +207,7 @@ public class Gerencia extends JFrame {
 		JMenuItem mntmAdicaoVitura = new JMenuItem("ADI\u00C7\u00C3O DE VIATURA");
 		mntmAdicaoVitura.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.ALT_MASK));
 		mntmAdicaoVitura.setToolTipText("JANELA PARA ADI\u00C7\u00C3O DE VIATRUAS DO CBMMG");
-		mntmAdicaoVitura.setIcon(new ImageIcon(Gerencia.class.getResource("/image/user_interface/manager_vtr.png")));
+		mntmAdicaoVitura.setIcon(new ImageIcon(Gerencia.class.getResource("/image/manager_vtr.png")));
 		mntmAdicaoVitura.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmAdicaoVitura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -219,7 +219,7 @@ public class Gerencia extends JFrame {
 		
 		JMenuItem mntmEdicaoViatura = new JMenuItem("EDI\u00C7\u00C3O DE VIATURA");
 		mntmEdicaoViatura.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.ALT_MASK));
-		mntmEdicaoViatura.setIcon(new ImageIcon(Gerencia.class.getResource("/image/user_interface/manager_vtr_edit.png")));
+		mntmEdicaoViatura.setIcon(new ImageIcon(Gerencia.class.getResource("/image/manager_vtr_edit.png")));
 		mntmEdicaoViatura.setToolTipText("JANELA PARA EDI\u00C7\u00C3O DOS DADOS DE VIATRUAS DO CBMMG");
 		mntmEdicaoViatura.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmEdicaoViatura.addActionListener(new ActionListener() {
@@ -236,14 +236,14 @@ public class Gerencia extends JFrame {
 		
 		JMenuItem mntmCredit = new JMenuItem("CR\u00C9DITOS");
 		mntmCredit.setFont(new Font("Arial", Font.BOLD, 14));
-		mntmCredit.setIcon(new ImageIcon(Principal.class.getResource("/image/user_interface/credit_team.png")));
+		mntmCredit.setIcon(new ImageIcon(Principal.class.getResource("/image/credit_team.png")));
 		mntmCredit.setToolTipText("JANELA COM OS CR\u00C9DITOS DOS ENVOLVIDOS NO PROJETO");
 		mntmCredit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK));
 		mnInfo.add(mntmCredit);
 		
 		JMenuItem mntmAjuda = new JMenuItem("AJUDA");
 		mntmAjuda.setFont(new Font("Arial", Font.BOLD, 14));
-		mntmAjuda.setIcon(new ImageIcon(Principal.class.getResource("/image/user_interface/help.png")));
+		mntmAjuda.setIcon(new ImageIcon(Principal.class.getResource("/image/help.png")));
 		mntmAjuda.setToolTipText("JANELA DE AJUDA");
 		mntmAjuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
 		mnInfo.add(mntmAjuda);

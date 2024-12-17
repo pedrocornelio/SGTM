@@ -99,7 +99,7 @@ public class RequisicaoPendente extends JFrame {
 	 * Create the frame.
 	 */
 	public RequisicaoPendente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(RequisicaoPendente.class.getResource("/image/user_interface/requisition_packaeg.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(RequisicaoPendente.class.getResource("/image/requisition_packaeg.png")));
 		setTitle("REQUISI\u00C7\u00C3O PENDENTE");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 850, 600);
@@ -206,7 +206,7 @@ public class RequisicaoPendente extends JFrame {
 		});
 		
 		btnRetirar = new JButton("FECHAR");
-		btnRetirar.setIcon(new ImageIcon(RequisicaoPendente.class.getResource("/image/user_interface/requisition_packaeg.png")));
+		btnRetirar.setIcon(new ImageIcon(RequisicaoPendente.class.getResource("/image/requisition_packaeg.png")));
 		btnRetirar.setMargin(new Insets(2, 5, 2, 5));
 		btnRetirar.setIconTextGap(0);
 		btnRetirar.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -369,7 +369,7 @@ public class RequisicaoPendente extends JFrame {
 			}
 		});
 		btnAtualizar.setFont(new Font("Arial", Font.BOLD, 14));
-		btnAtualizar.setIcon(new ImageIcon(RequisicaoPendente.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizar.setIcon(new ImageIcon(RequisicaoPendente.class.getResource("/image/desktop_package.png")));
 		btnAtualizar.setAlignmentY(1.0f);
 		
 		JLabel lblDescricao = new JLabel("DESCRI\u00C7\u00C3O");

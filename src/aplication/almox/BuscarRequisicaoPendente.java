@@ -60,7 +60,7 @@ public class BuscarRequisicaoPendente extends JFrame {
 		
 		setTitle("REQUISI\u00C7\u00C3O PENDENTE");
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(BuscarRequisicaoPendente.class.getResource("/image/user_interface/requisition_packaeg.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(BuscarRequisicaoPendente.class.getResource("/image/requisition_packaeg.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 620, 370);
 		setLocationRelativeTo(null);

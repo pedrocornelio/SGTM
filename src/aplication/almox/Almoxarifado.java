@@ -55,7 +55,6 @@ import net.coderazzi.filters.gui.TableFilterHeader;
 import net.coderazzi.filters.gui.TableFilterHeader.Position;
 import utilities.Ajuda;
 import utilities.Relogio;
-import utilities.TableCellRendererColor;
 
 public class Almoxarifado extends JFrame {
 
@@ -69,7 +68,6 @@ public class Almoxarifado extends JFrame {
 	static JTable tableHistEntrada;
 	private JTextField textFieldUsuLog;
 	static JButton btnRefresh;
-	static JTable tableHistEdicaoProduto;
 
 	/**
 	 * Launch the application.
@@ -95,8 +93,7 @@ public class Almoxarifado extends JFrame {
 	@SuppressWarnings({ "deprecation" })
 	public Almoxarifado() throws ParseException {
 		
-		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage(Almoxarifado.class.getResource("/image/user_interface/warehouse.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Almoxarifado.class.getResource("/image/warehouse.png")));
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setFont(new Font("Arial", Font.PLAIN, 12));
 		setTitle("ALMOXARIFADO");
@@ -126,7 +123,7 @@ public class Almoxarifado extends JFrame {
 		mntmEntrada.setHorizontalAlignment(SwingConstants.LEFT);
 		mntmEntrada.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmEntrada.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.ALT_MASK));
-		mntmEntrada.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/insercion_car.png")));
+		mntmEntrada.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/insercion_car.png")));
 		mntmEntrada.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent open) {
@@ -148,7 +145,7 @@ public class Almoxarifado extends JFrame {
 		JMenuItem mntmSaida = new JMenuItem("SA\u00CDDA DE ITEM");
 		mntmSaida.setToolTipText("JANELA DE SA\u00CDDA DE ITENS DO ALMOXARIFADO");
 		mntmSaida.setHorizontalAlignment(SwingConstants.LEFT);
-		mntmSaida.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/requisition_car.png")));
+		mntmSaida.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/requisition_packaeg.png")));
 		mntmSaida.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.ALT_MASK));
 		mntmSaida.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmSaida.addActionListener(new ActionListener() {
@@ -183,7 +180,7 @@ public class Almoxarifado extends JFrame {
 		});
 		mntmRequisicaoPendente.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmRequisicaoPendente.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.ALT_MASK));
-		mntmRequisicaoPendente.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/requisition_packaeg.png")));
+		mntmRequisicaoPendente.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/requisition_edition.png")));
 		mnAlmox.add(mntmRequisicaoPendente);
 		mnAlmox.add(mntmSaida);
 
@@ -219,11 +216,11 @@ public class Almoxarifado extends JFrame {
 		tableEstoque.getColumnModel().getColumn(10).setPreferredWidth(0);
 		tableEstoque.getColumnModel().getColumn(10).setMaxWidth(0);
 		
-		tableEstoque.setDefaultRenderer(Object.class, new TableCellRendererColor());
+		//tableEstoque.setDefaultRenderer(Object.class, new TableCellRendererColor());
 
 		JButton print = new JButton("");
 		print.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		print.setIcon(new ImageIcon(GestaoQuantidade.class.getResource("/image/user_interface/pdf.png")));
+		print.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/pdf.png")));
 		print.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -237,8 +234,8 @@ public class Almoxarifado extends JFrame {
 			}
 		});
 
-		JLabel lblNewLabel = new JLabel("INFORMA\u00C7\u00D5ES DE ESTOQUE DO ALMOXARIFADO");
-		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 13));
+		JLabel lblInformacoesEstoque = new JLabel("INFORMA\u00C7\u00D5ES DE ESTOQUE DO ALMOXARIFADO");
+		lblInformacoesEstoque.setFont(new Font("Arial", Font.PLAIN, 13));
 		
 		btnRefresh = new JButton("");
 		btnRefresh.addActionListener(new ActionListener() {
@@ -296,7 +293,7 @@ public class Almoxarifado extends JFrame {
 				tableHistSaida.getColumnModel().getColumn(11).setMaxWidth(25);
 			}
 		});
-		btnRefresh.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/refresh.png")));
+		btnRefresh.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/refresh.png")));
 		GroupLayout gl_panelEstoque = new GroupLayout(panelEstoque);
 		gl_panelEstoque.setHorizontalGroup(
 			gl_panelEstoque.createParallelGroup(Alignment.LEADING)
@@ -305,7 +302,7 @@ public class Almoxarifado extends JFrame {
 					.addGroup(gl_panelEstoque.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panelEstoque.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE)
+							.addComponent(lblInformacoesEstoque, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED, 374, Short.MAX_VALUE)
@@ -326,7 +323,7 @@ public class Almoxarifado extends JFrame {
 							.addComponent(print, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panelEstoque.createSequentialGroup()
 							.addGap(15)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(lblInformacoesEstoque, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
 					.addGap(12)
 					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
 					.addGap(11))
@@ -368,7 +365,7 @@ public class Almoxarifado extends JFrame {
 
 		JButton print_1 = new JButton("");
 		print_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		print_1.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/pdf.png")));
+		print_1.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/pdf.png")));
 		print_1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -391,7 +388,7 @@ public class Almoxarifado extends JFrame {
 				btnRefresh.doClick();
 			}
 		});
-		btnRefresh_1.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/refresh.png")));
+		btnRefresh_1.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/refresh.png")));
 		GroupLayout gl_panelHistSaida = new GroupLayout(panelHistSaida);
 		gl_panelHistSaida.setHorizontalGroup(
 			gl_panelHistSaida.createParallelGroup(Alignment.LEADING)
@@ -457,7 +454,7 @@ public class Almoxarifado extends JFrame {
 		
 
 		JButton print_2 = new JButton("");
-		print_2.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/pdf.png")));
+		print_2.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/pdf.png")));
 		print_2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -480,7 +477,7 @@ public class Almoxarifado extends JFrame {
 				btnRefresh.doClick();
 			}
 		});
-		btnRefresh_2.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/refresh.png")));
+		btnRefresh_2.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/refresh.png")));
 		GroupLayout gl_panelHistEntrada = new GroupLayout(panelHistEntrada);
 		gl_panelHistEntrada.setHorizontalGroup(
 			gl_panelHistEntrada.createParallelGroup(Alignment.LEADING)
@@ -492,7 +489,7 @@ public class Almoxarifado extends JFrame {
 							.addComponent(lblInformaesDeHistrico_1, GroupLayout.PREFERRED_SIZE, 355, GroupLayout.PREFERRED_SIZE)
 							.addGap(12)
 							.addComponent(btnRefresh_2, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 354, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 381, Short.MAX_VALUE)
 							.addComponent(print_2, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED))
 						.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, 786, Short.MAX_VALUE))
@@ -504,7 +501,7 @@ public class Almoxarifado extends JFrame {
 					.addGroup(gl_panelHistEntrada.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panelHistEntrada.createSequentialGroup()
 							.addGap(8)
-							.addComponent(print_2, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
+							.addComponent(print_2, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_panelHistEntrada.createSequentialGroup()
 							.addContainerGap()
 							.addGroup(gl_panelHistEntrada.createParallelGroup(Alignment.LEADING)
@@ -513,7 +510,7 @@ public class Almoxarifado extends JFrame {
 									.addComponent(lblInformaesDeHistrico_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 								.addComponent(btnRefresh_2, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+					.addComponent(scrollPane_2, GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
 					.addGap(6))
 		);
 		panelHistEntrada.setLayout(gl_panelHistEntrada);
@@ -536,7 +533,7 @@ public class Almoxarifado extends JFrame {
 		mntmNovoItem.setToolTipText("MENU DE ENTRADA DE NOVOS ITENS NO ALMOXARIFADO");
 		mntmNovoItem.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmNovoItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.ALT_MASK));
-		mntmNovoItem.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/insercion_warehouse.png")));
+		mntmNovoItem.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/insercion_warehouse.png")));
 		mnGestao.add(mntmNovoItem);
 		mntmNovoItem.addActionListener(new ActionListener() {
 			@Override
@@ -558,7 +555,7 @@ public class Almoxarifado extends JFrame {
 		JMenuItem mntmGestQuant = new JMenuItem(" GEST\u00C3O DE QUANTIDADE");
 		mntmGestQuant.setToolTipText("MENU DE GEST\u00C3O DA QUANTIDADE M\u00CDNIMA DOS ITENS DO ALMOXARIFADO");
 		mntmGestQuant.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.ALT_MASK));
-		mntmGestQuant.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/max_min.png")));
+		mntmGestQuant.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/max_min.png")));
 		mntmGestQuant.setFont(new Font("Arial", Font.BOLD, 14));
 		mnGestao.add(mntmGestQuant);
 		mntmGestQuant.addActionListener(new ActionListener() {
@@ -589,7 +586,7 @@ public class Almoxarifado extends JFrame {
 		});
 		mnGestao.add(mntmLocalizacao);
 		mntmLocalizacao.setToolTipText("MENU DE ALTERA\u00C7\u00C3O DA LOCALIZA\u00C7\u00C3O DOS ITENS DO ALMOXARIFADO");
-		mntmLocalizacao.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/position.png")));
+		mntmLocalizacao.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/position.png")));
 		mntmLocalizacao.setFont(new Font("Arial", Font.BOLD, 14));
 		mntmLocalizacao.setHorizontalAlignment(SwingConstants.LEFT);
 		mntmLocalizacao.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.ALT_MASK));
@@ -607,7 +604,7 @@ public class Almoxarifado extends JFrame {
 				}
 			}
 		});
-		mntmEdicaoDeItem.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/issue.png")));
+		mntmEdicaoDeItem.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/issue.png")));
 		mntmEdicaoDeItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.ALT_MASK));
 		mntmEdicaoDeItem.setToolTipText("MENU DE ALTERA\u00C7\u00C3O DE INFORMA\u00C7\u00D5ES DOS ITENS DO ALMOXARIFADO");
 		mntmEdicaoDeItem.setHorizontalAlignment(SwingConstants.LEFT);
@@ -625,7 +622,7 @@ public class Almoxarifado extends JFrame {
 		
 		JMenuItem mntmHistoricoEntrada = new JMenuItem("HIST\u00D3RICO DE ENTRADA");
 		mntmHistoricoEntrada.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.ALT_MASK));
-		mntmHistoricoEntrada.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/almox_calendar_insert.png")));
+		mntmHistoricoEntrada.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/almox_calendar_insert.png")));
 		mntmHistoricoEntrada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HistoricoEntrada exibir = null;
@@ -643,7 +640,7 @@ public class Almoxarifado extends JFrame {
 		
 		JMenuItem mntmHistoricoSaida = new JMenuItem("HIST\u00D3RICO DE SA\u00CDDA");
 		mntmHistoricoSaida.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_J, InputEvent.ALT_MASK));
-		mntmHistoricoSaida.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/almox_calendar_requisition.png")));
+		mntmHistoricoSaida.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/almox_calendar_requisition.png")));
 		mntmHistoricoSaida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HistoricoSaida exibir = null;
@@ -659,19 +656,37 @@ public class Almoxarifado extends JFrame {
 		mntmHistoricoSaida.setFont(new Font("Arial", Font.BOLD, 14));
 		mnConsulta.add(mntmHistoricoSaida);
 		
+		JMenuItem mntmMaiorConsumo = new JMenuItem("PE\u00C7AS COM MAIOR SA\u00CDDA");
+		mntmMaiorConsumo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.ALT_MASK));
+		mntmMaiorConsumo.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/most_used.png")));
+		mntmMaiorConsumo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PecasMaiorSaida exibir = null;
+				try {
+					exibir = new PecasMaiorSaida();
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				exibir.setVisible(true);
+			}
+		});
+		mntmMaiorConsumo.setToolTipText("JANELA DE CONSULTA DE CONTAGEM DE SA\u00CDDA DE PE\u00C7AS POR PER\u00CDODO");
+		mntmMaiorConsumo.setFont(new Font("Arial", Font.BOLD, 14));
+		mnConsulta.add(mntmMaiorConsumo);
+		
 		JMenu mnInfo = new JMenu("INFO");
 		mnInfo.setFont(new Font("Arial Black", Font.BOLD, 12));
 		menuBar.add(mnInfo);
 		
 		JMenuItem mntmCredit = new JMenuItem("CR\u00C9DITOS");
 		mntmCredit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.ALT_MASK));
-		mntmCredit.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/credit_team.png")));
+		mntmCredit.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/credit.png")));
 		mntmCredit.setToolTipText("JANELA COM OS CR\u00C9DITOS DOS ENVOLVIDOS NO PROJETO");
 		mntmCredit.setFont(new Font("Arial", Font.BOLD, 14));
 		mnInfo.add(mntmCredit);
 		
 		JMenuItem mntmAjuda = new JMenuItem("AJUDA");
-		mntmAjuda.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/help.png")));
+		mntmAjuda.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/help.png")));
 		mntmAjuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
 		mntmAjuda.setToolTipText("JANELA DE AJUDA");
 		mntmAjuda.setFont(new Font("Arial", Font.BOLD, 14));
@@ -715,84 +730,18 @@ public class Almoxarifado extends JFrame {
 					.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
 					.addContainerGap())
 		);
-		
-		JPanel panelHistEdicaoProduto = new JPanel();
-		tabbedPane.addTab("HIST\u00D3RICO EDI\u00C7\u00C3O", null, panelHistEdicaoProduto, "INFORMA\u00C7\u00D5ES DE EDI\u00C7\u00D5ES ANTERIORES");
-		
-		JLabel lblInformaesDeHistrico_2 = new JLabel("INFORMA\u00C7\u00D5ES DE HIST\u00D3RICO DE EDI\u00C7\u00C3O DE PRODUTO");
-		lblInformaesDeHistrico_2.setFont(new Font("Arial", Font.PLAIN, 13));
-		
-		JButton btnRefresh_3 = new JButton("");
-		btnRefresh_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				btnRefresh.doClick();
-			}
-		});
-		btnRefresh_3.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/refresh.png")));
 		panelHistEntrada.setLayout(gl_panelHistEntrada);
-		
-		JButton print_3 = new JButton("");
-		print_3.setIcon(new ImageIcon(Almoxarifado.class.getResource("/image/user_interface/pdf.png")));
-		print_3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				MessageFormat header = new MessageFormat("IMPRESSÃO DA TABELA");
-				MessageFormat footer = new MessageFormat("Page{0,number,integer}");
-				try {
-					tableHistEntrada.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-				} catch (java.awt.print.PrinterException e1) {
-					System.err.format("Cannot print %s%n", e1.getMessage());
-				}
-			}
-		});
 
-		JScrollPane scrollPane_3 = new JScrollPane();
-		
-		//TABELA HISTORICO DE ENTRADA
-		tableHistEdicaoProduto = new JTable();
-		TableFilterHeader filterHeaderHistEdicaoProduto = new TableFilterHeader(tableHistEdicaoProduto, AutoChoices.ENABLED);
-		filterHeaderHistEdicaoProduto.setPosition(Position.TOP);
-		filterHeaderHistEdicaoProduto.setBackground(Color.white);
-		tableHistEdicaoProduto.setFont(new Font("Arial", Font.PLAIN, 12));
-		scrollPane_3.setViewportView(tableHistEdicaoProduto);
-			
-		
-		GroupLayout gl_panelHistEdicaoProduto = new GroupLayout(panelHistEdicaoProduto);
-		gl_panelHistEdicaoProduto.setHorizontalGroup(
-			gl_panelHistEdicaoProduto.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelHistEdicaoProduto.createSequentialGroup()
-					.addGap(10)
-					.addGroup(gl_panelHistEdicaoProduto.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelHistEdicaoProduto.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(lblInformaesDeHistrico_2)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnRefresh_3, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
-							.addComponent(print_3, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED))
-						.addComponent(scrollPane_3))
-					.addGap(9))
-		);
-		gl_panelHistEdicaoProduto.setVerticalGroup(
-			gl_panelHistEdicaoProduto.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelHistEdicaoProduto.createSequentialGroup()
-					.addGroup(gl_panelHistEdicaoProduto.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelHistEdicaoProduto.createSequentialGroup()
-							.addGap(10)
-							.addComponent(btnRefresh_3, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelHistEdicaoProduto.createSequentialGroup()
-							.addGap(15)
-							.addComponent(print_3, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelHistEdicaoProduto.createSequentialGroup()
-							.addGap(15)
-							.addComponent(lblInformaesDeHistrico_2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-					.addGap(12)
-					.addComponent(scrollPane_3)
-					.addGap(6))
-		);
-		panelHistEdicaoProduto.setLayout(gl_panelHistEdicaoProduto);
 		getContentPane().setLayout(groupLayout);
+		
+		//AVALIAÇÃO DE ESTOQUE MÍNIMO
+		DefaultTableModel modelEstoqueMinimo = new DefaultTableModel();
+		produtoDao.tableEstoqueMinimo(modelEstoqueMinimo);
+		Integer h = modelEstoqueMinimo.getRowCount();
+		if ( h > 0) {
+			BuscarEstoqueMinimo buscarEstoqueMinimo = new BuscarEstoqueMinimo();
+			buscarEstoqueMinimo.setVisible(true);
+		}
 		
 		//AVALIAÇÃO DE REQUISIÇÃO PENDENTE
 		DefaultTableModel modelRequisicaoPendente = new DefaultTableModel();
@@ -800,8 +749,9 @@ public class Almoxarifado extends JFrame {
 		Integer k = modelRequisicaoPendente.getRowCount();
 		if ( k > 0) {
 			BuscarRequisicaoPendente buscarRequisicao = new BuscarRequisicaoPendente();
-		buscarRequisicao.setVisible(true);
+			buscarRequisicao.setVisible(true);
 		}
+		
 
 	}
 }

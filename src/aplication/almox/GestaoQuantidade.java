@@ -77,7 +77,7 @@ public class GestaoQuantidade extends JFrame {
 		setResizable(false);
 		
 		setTitle("GEST\u00C3O DE QUANTIDADE M\u00CDNIMA");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(GestaoQuantidade.class.getResource("/image/user_interface/max_min.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GestaoQuantidade.class.getResource("/image/max_min.png")));
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 680, 630);
 		setLocationRelativeTo(null);
@@ -128,7 +128,7 @@ public class GestaoQuantidade extends JFrame {
 		JButton btnAlterar = new JButton("  ALTERAR");
 		btnAlterar.setBounds(266, 545, 127, 35);
 		btnAlterar.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		btnAlterar.setIcon(new ImageIcon(GestaoQuantidade.class.getResource("/image/user_interface/max_min.png")));
+		btnAlterar.setIcon(new ImageIcon(GestaoQuantidade.class.getResource("/image/max_min.png")));
 		btnAlterar.setMargin(new Insets(2, 5, 2, 5));
 		btnAlterar.setIconTextGap(0);
 		btnAlterar.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -167,7 +167,7 @@ public class GestaoQuantidade extends JFrame {
 		btnAtualizar.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAtualizar.setBounds(382, 489, 148, 35);
 		btnAtualizar.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		btnAtualizar.setIcon(new ImageIcon(GestaoQuantidade.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizar.setIcon(new ImageIcon(GestaoQuantidade.class.getResource("/image/desktop_package.png")));
 		btnAtualizar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
@@ -189,7 +189,7 @@ public class GestaoQuantidade extends JFrame {
 
 		JButton print = new JButton("");
 		print.setBounds(617, 458, 28, 28);
-		print.setIcon(new ImageIcon(GestaoQuantidade.class.getResource("/image/user_interface/pdf.png")));
+		print.setIcon(new ImageIcon(GestaoQuantidade.class.getResource("/image/pdf.png")));
 		print.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {

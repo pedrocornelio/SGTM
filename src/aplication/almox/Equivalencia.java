@@ -77,7 +77,7 @@ public class Equivalencia extends JFrame {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Equivalencia() {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Equivalencia.class.getResource("/image/user_interface/equivalence.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Equivalencia.class.getResource("/image/equivalence.png")));
 		setTitle("EQUIVAL\u00CANCIA");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
@@ -224,7 +224,7 @@ public class Equivalencia extends JFrame {
 				tableCodRecebido.getColumnModel().getColumn(0).setMaxWidth(40);
 			}
 		});
-		btnAtualizarCodRecebido.setIcon(new ImageIcon(Equivalencia.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizarCodRecebido.setIcon(new ImageIcon(Equivalencia.class.getResource("/image/desktop_package.png")));
 		btnAtualizarCodRecebido.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAtualizarCodRecebido.setBounds(410, 415, 145, 35);
 		contentPane.add(btnAtualizarCodRecebido);
@@ -235,7 +235,7 @@ public class Equivalencia extends JFrame {
 				dispose();
 			}
 		});
-		btnFechar.setIcon(new ImageIcon(Equivalencia.class.getResource("/image/user_interface/equivalence.png")));
+		btnFechar.setIcon(new ImageIcon(Equivalencia.class.getResource("/image/equivalence.png")));
 		btnFechar.setFont(new Font("Arial", Font.BOLD, 14));
 		btnFechar.setBounds(231, 415, 123, 35);
 		contentPane.add(btnFechar);
@@ -339,7 +339,7 @@ public class Equivalencia extends JFrame {
 				tableCodMontadora.getColumnModel().getColumn(0).setMaxWidth(40);
 			}
 		});
-		btnAtualizarCodMontadora.setIcon(new ImageIcon(Equivalencia.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizarCodMontadora.setIcon(new ImageIcon(Equivalencia.class.getResource("/image/desktop_package.png")));
 		btnAtualizarCodMontadora.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAtualizarCodMontadora.setBounds(410, 215, 145, 35);
 		contentPane.add(btnAtualizarCodMontadora);

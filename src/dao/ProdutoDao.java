@@ -41,4 +41,8 @@ public interface ProdutoDao {
 
 	DefaultTableModel tableProcurarProdutoConsumo(String marca, String cod_recebido, String descricao, DefaultTableModel model);
 
+	DefaultTableModel tableEstoqueMinimo(DefaultTableModel model);
+
+	DefaultTableModel tablePecasMaiorSaida(DefaultTableModel model, String dataInicio, String dataFim);
+
 }

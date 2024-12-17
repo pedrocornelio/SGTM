@@ -83,7 +83,7 @@ public class DadosOrdemManutencao extends JFrame {
 	 */
 	public DadosOrdemManutencao() throws ParseException {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(DadosOrdemManutencao.class.getResource("/image/user_interface/gear_maintenance.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DadosOrdemManutencao.class.getResource("/image/gear_maintenance.png")));
 		setTitle("DADOS DA ORDEM DE MANUTEN\u00C7\u00C3O");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -149,7 +149,7 @@ public class DadosOrdemManutencao extends JFrame {
 				textFieldModelo.setText(vtr.getModelo());
 			}
 		});
-		btnSearchPlaca.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/user_interface/search.png")));
+		btnSearchPlaca.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/search.png")));
 		btnSearchPlaca.setBounds(332, 54, 38, 35);
 		contentPane.add(btnSearchPlaca);
 		
@@ -195,7 +195,7 @@ public class DadosOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitar.setBounds(125, 152, 38, 35);
 		contentPane.add(btnSearchMilitar);
 		
@@ -223,7 +223,7 @@ public class DadosOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar_1.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar_1.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitar_1.setBounds(510, 152, 38, 35);
 		contentPane.add(btnSearchMilitar_1);
 		
@@ -285,7 +285,7 @@ public class DadosOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar_2.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar_2.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitar_2.setBounds(125, 431, 38, 35);
 		contentPane.add(btnSearchMilitar_2);
 		
@@ -330,7 +330,7 @@ public class DadosOrdemManutencao extends JFrame {
 				}
 			}
 		});
-		btnSearchMilitar_3.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/user_interface/search_user.png")));
+		btnSearchMilitar_3.setIcon(new ImageIcon(DadosOrdemManutencao.class.getResource("/image/search_user.png")));
 		btnSearchMilitar_3.setBounds(510, 431, 38, 35);
 		contentPane.add(btnSearchMilitar_3);
 		

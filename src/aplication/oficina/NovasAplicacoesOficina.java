@@ -73,7 +73,7 @@ public class NovasAplicacoesOficina extends JFrame {
 	 * Create the frame.
 	 */
 	public NovasAplicacoesOficina() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(NovasAplicacoesOficina.class.getResource("/image/user_interface/desktop_package.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(NovasAplicacoesOficina.class.getResource("/image/desktop_package.png")));
 		
 		setTitle("APLICA\u00C7\u00D5ES");
 		setResizable(false);
@@ -207,7 +207,7 @@ public class NovasAplicacoesOficina extends JFrame {
 				 textFieldAno.setText(vtr.getAno());
 			}
 		});
-		btnSearchPlaca.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/user_interface/search.png")));
+		btnSearchPlaca.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/search.png")));
 		btnSearchPlaca.setMargin(new Insets(2, 2, 2, 2));
 		btnSearchPlaca.setBounds(368, 114, 38, 35);
 		contentPane.add(btnSearchPlaca);
@@ -242,7 +242,7 @@ public class NovasAplicacoesOficina extends JFrame {
 								
 			}
 		});
-		btnPlus.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/user_interface/up.png")));
+		btnPlus.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/insert.png")));
 		btnPlus.setBounds(425, 180, 30, 30);
 		contentPane.add(btnPlus);
 		
@@ -260,7 +260,7 @@ public class NovasAplicacoesOficina extends JFrame {
 				
 			}
 		});
-		btnMinus.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/user_interface/trash.png")));
+		btnMinus.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/trash.png")));
 		btnMinus.setBounds(425, 235, 30, 30);
 		contentPane.add(btnMinus);
 		
@@ -270,7 +270,7 @@ public class NovasAplicacoesOficina extends JFrame {
 				dispose();
 			}
 		});
-		btnAtualizarar.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/user_interface/desktop_package.png")));
+		btnAtualizarar.setIcon(new ImageIcon(NovasAplicacoesOficina.class.getResource("/image/desktop_package.png")));
 		btnAtualizarar.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnAtualizarar.setBounds(148, 304, 140, 35);
 		contentPane.add(btnAtualizarar);

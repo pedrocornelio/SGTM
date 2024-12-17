@@ -77,7 +77,7 @@ public class AdicionarViatura extends JFrame {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public AdicionarViatura() {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(AdicionarViatura.class.getResource("/image/user_interface/manager_vtr.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(AdicionarViatura.class.getResource("/image/manager_vtr.png")));
 		setTitle("ADICIONAR VIATURA");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 460, 410);
@@ -296,7 +296,7 @@ public class AdicionarViatura extends JFrame {
 				
 			}
 		});
-		btnAddVTR.setIcon(new ImageIcon(AdicionarViatura.class.getResource("/image/user_interface/manager_vtr.png")));
+		btnAddVTR.setIcon(new ImageIcon(AdicionarViatura.class.getResource("/image/manager_vtr.png")));
 		btnAddVTR.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAddVTR.setEnabled(false);
 		btnAddVTR.setBounds(117, 312, 210, 35);

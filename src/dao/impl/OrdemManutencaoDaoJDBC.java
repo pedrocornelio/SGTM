@@ -32,16 +32,16 @@ public class OrdemManutencaoDaoJDBC implements OrdemManutencaoDao {
 	public void insert(OrdemManutencao ordemManutencao) {
 		PreparedStatement pst = null;
 		try {
-			pst = conn.prepareStatement("INSERT INTO ordem_manutencao (nOM, data_inicio, hora_inicio, relato, id_militar_baixa, id_militar_triagem, id_viatura) "
-					+ "VALUE (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			pst = conn.prepareStatement("INSERT INTO ordem_manutencao (nOM, data_inicio, hora_inicio, relato, id_viatura) "
+					+ "VALUE (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			
 			pst.setString(1, ordemManutencao.getnOM());
 			pst.setDate(2, new java.sql.Date(ordemManutencao.getData_inicio().getTime()));
 			pst.setTime(3, new java.sql.Time(ordemManutencao.getHora_inicio().getTime()));
 			pst.setString(4, ordemManutencao.getRelato());
-			pst.setInt(5, ordemManutencao.getMilitarBaixa().getId_militar());
-			pst.setInt(6, ordemManutencao.getMilitarTriagem().getId_militar());
-			pst.setInt(7, ordemManutencao.getViatura().getId_viatura());
+			//pst.setInt(5, ordemManutencao.getMilitarBaixa().getId_militar());
+			//pst.setInt(6, ordemManutencao.getMilitarTriagem().getId_militar());
+			pst.setInt(5, ordemManutencao.getViatura().getId_viatura());
 
 			pst.executeUpdate();
 			
